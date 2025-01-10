@@ -14610,7 +14610,173 @@ pre .code {
 }
 
 
+/*  */
+/*  */
+/*  */
+/* Login */
+.login-page {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('../imgs/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  background-position: center center;
+}
 
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.8);
+  width: 350px;
+  min-height: 400px; /* Adjust based on content height */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.image-section img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.form-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.form-section p{
+  font-size: small;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to left, #f8c8d0, #c8a9d1);
+}
+
+.password-container {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.login-text {
+  font-size: 14px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.login-btn, .submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #7a4ac1;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-btn:hover, .submit-btn:hover {
+  background-color: #6a3d97;
+  transform: scale(1.05); /* Subtle scaling effect on hover */
+}
+
+/*  */
+/*  */
+/*  */
+/* DELETE */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  /* Black semi-transparent background */
+  z-index: 1000;
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.popup-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: #f57c00;
+  /* Orange color */
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 20px;
+  /* Adjust icon size */
+}
+
+.delete-btn:hover {
+  color: #ff6f00;
+  /* Darker orange color for hover */
+}
+
+.confirm-delete {
+  background-color: #f57c00;
+  /* Orange color */
+  color: white;
+  border: none;
+}
+
+.confirm-delete:hover {
+  background-color: #ff6f00;
+  /* Darker orange on hover */
+}
+
+.cancel-delete {
+  background-color: #e0e0e0;
+  /* Gray color */
+  color: black;
+  border: none;
+}
+
+.cancel-delete:hover {
+  background-color: #bdbdbd;
+  /* Darker gray on hover */
+}
 
 /*  */
 /*  */
