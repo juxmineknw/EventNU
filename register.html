@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Register for the Event">
+    <link rel="stylesheet" href="assets/css/meyawo.css">    
+    <meta name="author" content="Devcrud">
+    <title>Event Registration</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body class="register">
+    <div class="register-container">
+        <!-- Form Section -->
+        <div class="register-form">
+            <h2 class="register-heading">Event Registration</h2>
+
+            <form action="submit_registration.php" method="POST" class="register-form">
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label for="fullName" class="form-label register-label">Full Name</label>
+                    <input type="text" class="form-control register-input" id="fullName" name="fullName" required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label register-label">Email</label>
+                    <input type="email" class="form-control register-input" id="email" name="email" required>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="mb-3">
+                    <label for="phone" class="form-label register-label">Phone Number</label>
+                    <input type="tel" class="form-control register-input" id="phone" name="phone" required>
+                </div>
+
+                <!-- Event Selection -->
+                <div class="mb-3">
+                    <label for="event" class="form-label register-label">Select Event</label>
+                    <select class="register-form-select" id="event" name="event" required>
+                        <option value="">Select an Event</option>
+                        <option value="Christmas">Christmas Event</option>
+                        <option value="New Year Party">New Year Party</option>
+                        <option value="Concert">Concert</option>
+                        <option value="Art Exhibition">Art Exhibition</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <a href="topay.html" class="register-pm">Process to Payment</a>
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center">
+                    <a href="javascript:history.back()" class="back-button">Go Back</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Image Section -->
+        <div class="register-image">
+            <img src="assets/imgs/cartoon.png" alt="Event Image">
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+</html>

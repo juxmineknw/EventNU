@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>EventNU</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- meyao -->
+    <link rel="stylesheet" href="assets/css/meyawo.css">
+    <!-- font-awesome icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Material icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- calender -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" class="setting-page">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" style="color: #ff8c42;" href="index.html">EventNU</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" style="color: gray;" href="index.html">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="color: gray;" href="calendar.html">Calendar</Details></a>
+                </li>
+                <li class="item">
+                    <a class="link" style="color: gray;" href="favorite.html">Favorite</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="color: gray;" href="layout.html">Layout</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="color: gray;" href="setting.html">Setting</a>
+                </li>
+                <li class="item ml-md-3">
+                    <a href="components.html" class="btn btn-primary">Components</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
+
+    <!-- Setting -->
+    <div class="container" style="margin-top: 100px;">
+        <h2>Edit Profile</h2>
+        <div class="setting-profile-container">
+            <div class="setting-profile-info">
+                <img src="https://i.cbc.ca/1.5359228.1577206958!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_940/smudge-the-viral-cat.jpg"
+                    alt="Profile Picture" class="setting-profile-image">
+                <span class="setting-profile-name">jus</span>
+            </div>
+            <button class="setting-edit-btn">
+                <i class="fas fa-edit"></i> Edit
+            </button>
+        </div>
+        <div class="setting-bio-container">
+            <h2>Biography</h2>
+            <textarea class="setting-bio-textarea" placeholder="Write your bio here..."></textarea>
+        </div>
+        <div class="form-container">
+            <div class="form-group-wrapper">
+                <div class="form-group">
+                    <h2>Gender</h2>
+                    <div class="custom-select-container">
+                        <select id="gender" name="gender">
+                            <option value="" disabled selected>Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="dropdown-icon" onclick="openDropdown()">
+                            <i class="bi bi-caret-down-fill icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="birthday-container">
+                    <h2>Birthday</h2>
+                    <div>
+                        <input type="text" class="birthday-input" placeholder="DD / MM / YY" id="birthday">
+                        <div class="dropdown-icon2" onclick="document.querySelector('#birthday')._flatpickr.open();">
+                            <i class="bi bi-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="setting-privacy-section">
+            <h2 style="margin-top: 40px;">Privacy</h2>
+            <div class="setting-password-container">
+                <input type="password" placeholder="Password" class="setting-password-field">
+                <input type="password" placeholder="New Password" class="setting-password-field">
+                <input type="password" placeholder="Confirm Password" class="setting-password-field">
+            </div>
+        </div>
+        <h2 style="margin-top: 40px;">Tickets</h2>
+        <div class="setting-ticket-container">
+            <a href="pending.html" class="setting-item">
+                <div class="setting-icon2">
+                    <i class="bi bi-wallet2"></i>
+                </div>
+                <p>Pending Payment</p>
+            </a>
+            <a href="payment.html" class="setting-item">
+                <div class="setting-icon2">
+                    <i class="bi bi-check-circle"></i>
+                </div>
+                <p>Payment Completed</p>
+            </a>
+            <a href="purchase.html" class="setting-item">
+                <div class="setting-icon2">
+                    <i class="bi bi-clock-history"></i>
+                </div>
+                <p>Purchase History</p>
+            </a>
+        </div>
+        <h2 style="margin-top: 40px;">Deactivate account</h2>
+        <div class="setting-form-group-wrapper3">
+            <span class="setting-profile-name" style="margin-top: 5px;">Deactivate your account</span>
+            <button class="setting-edit-btn">Confirm</button>
+        </div>
+
+    </div>
+    <!-- End Setting -->
+
+
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer" style="margin-top: 50px">
+            <p class="mb-0">
+                <script>document.write(new Date().getFullYear())</script>
+                <a href="https://www.nu.ac.th/">Naresuan University</a>
+            </p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="https://www.facebook.com/nu.university" class="link"><i class="ti-facebook"></i></a>
+                <a href="https://www.nu.ac.th/" class="link"><i class="ti-google"></i></a>
+                <a href="https://www.nu.ac.th/?page_id=5013" class="link"><i class="ti-email"></i></a>
+                <a href="https://www.google.com/maps?q=Naresuan+University" class="link" target="_blank"><i
+                        class="ti-location-pin"></i>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Meyawo js -->
+    <script src="assets/js/meyawo.js"></script>
+    <!-- event date -->
+    <script src="assets/js/ืdate.js"></script>
+    <!-- select faclty -->
+    <script src="assets/js/faculty.js"></script>
+    <!-- star -->
+    <script src="assets/js/star.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/arrow.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- date -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="assets/js/datepicker.js"></script>
+
+
+</body>
+
+</html>

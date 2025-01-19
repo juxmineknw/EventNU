@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code พร้อมเพย์</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+
+<body class="topay-page">
+    <div class="topay-container">
+        <h2>QR Code พร้อมเพย์</h2>
+        <label>จำนวนเงิน (บาท)</label>
+        <input type="number" id="amount" placeholder="กรอกจำนวนเงิน" min="1" required>
+        <button onclick="generatePromptPayQR()">สร้าง QR Code</button>
+        <canvas id="qrcode"></canvas>
+    </div>
+
+    <script>
+        function generatePromptPayQR() {
+            const amount = document.getElementById("amount").value;
+
+            if (!amount || amount <= 0) {
+                alert("กรุณากรอกจำนวนเงินที่ถูกต้อง");
+                return;
+            }
+
+            // ข้อมูล PromptPay
+            const promptPayID = "0985499270"; // หมายเลขพร้อมเพย์ของคุณ
+            const amountFixed = parseFloat(amount).toFixed(2);
+
+            // สร้างข้อมูล QR Code
+            const qrData = createPromptPayData(promptPayID, amountFixed);
+
+            // ใช้ QRCode.js สร้าง QR Code
+            const canvas = document.getElementById("qrcode");
+            QRCode.toCanvas(canvas, qrData, { width: 300 }, function (error) {
+                if (error) {
+                    console.error(error);
+                    alert("เกิดข้อผิดพลาดในการสร้าง QR Code");
+                } else {
+                    console.log("QR Code generated successfully.");
+                }
+            });
+        }
+
+        function createPromptPayData(id, amount) {
+            const payload = [
+                "000201",                        // Format indicator
+                "010211",                        // Version and QR type
+                "29370016A000000677010111",      // PromptPay AID
+                `011300${id.length}${id}`,       // PromptPay ID
+                `5408${amount.padStart(6, '0')}`, // จำนวนเงิน
+                "5802TH",                        // ประเทศ
+                "6304"                           // CRC placeholder
+            ];
+
+            const data = payload.join("");
+            const crc = calculateCRC16(data + "6304");
+            return data + crc;
+        }
+
+        // ฟังก์ชันคำนวณ CRC16
+        function calculateCRC16(input) {
+            let crc = 0xFFFF;
+
+            for (let i = 0; i < input.length; i++) {
+                const byte = input.charCodeAt(i);
+                crc ^= byte << 8;
+
+                for (let j = 0; j < 8; j++) {
+                    if (crc & 0x8000) {
+                        crc = (crc << 1) ^ 0x1021;
+                    } else {
+                        crc <<= 1;
+                    }
+                }
+            }
+
+            return (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, "0");
+        }
+    </script>
+</body>
+
+</html>
