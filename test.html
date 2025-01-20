@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตัวอย่างหน้าเว็บ</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .event-container {
+            display: flex;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .poster {
+            max-width: 300px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .details {
+            flex: 1;
+        }
+
+        details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="th">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chang Music Connection</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>TICKETIER</h1>
+        </header>
+        <main>
+            <div class="event-container">
+                <img src="assets/imgs/พุ่งใต้เฟส.webp" alt="Event Poster" class="poster">
+                <div class="details">
+                    <h2>Chang Music Connection Presents “ผุ้งใต้เฟส 3”</h2>
+                    <ul>
+                        <li><strong>วันจำหน่ายบัตร:</strong> 1 ก.พ. 2025 | 09:00</li>
+                        <li><strong>วันแสดง:</strong> 8 มี.ค. 2025</li>
+                        <li><strong>เวลา:</strong> 13:00 เป็นต้นไป</li>
+                        <li><strong>ราคา:</strong> 1,500 บาท</li>
+                        <li><strong>สถานที่:</strong> THE PIRATES PARK HATYAI</li>
+                    </ul>
+                    <button id="buy-ticket">ซื้อตั๋ว</button>
+                </div>
+            </div>
+        </main>
+        <script src="script.js"></script>   
+        <script>document.getElementById('buy-ticket').addEventListener('click', () => {
+                alert('กำลังพาคุณไปยังหน้าซื้อตั๋ว');
+            });
+        </script>
+    </body>
+
+    </html>

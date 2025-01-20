@@ -23,7 +23,11 @@
             <form action="submit_registration.php" method="POST" class="register-form">
                 <!-- Full Name -->
                 <div class="mb-3">
-                    <label for="fullName" class="form-label register-label">Full Name</label>
+                    <label for="fullName" class="form-label register-label">First Name</label>
+                    <input type="text" class="form-control register-input" id="fullName" name="fullName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="fullName" class="form-label register-label">Last Name</label>
                     <input type="text" class="form-control register-input" id="fullName" name="fullName" required>
                 </div>
 
@@ -37,18 +41,6 @@
                 <div class="mb-3">
                     <label for="phone" class="form-label register-label">Phone Number</label>
                     <input type="tel" class="form-control register-input" id="phone" name="phone" required>
-                </div>
-
-                <!-- Event Selection -->
-                <div class="mb-3">
-                    <label for="event" class="form-label register-label">Select Event</label>
-                    <select class="register-form-select" id="event" name="event" required>
-                        <option value="">Select an Event</option>
-                        <option value="Christmas">Christmas Event</option>
-                        <option value="New Year Party">New Year Party</option>
-                        <option value="Concert">Concert</option>
-                        <option value="Art Exhibition">Art Exhibition</option>
-                    </select>
                 </div>
 
                 <!-- Submit Button -->

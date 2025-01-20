@@ -16,37 +16,61 @@
                 <img src="assets/imgs/EventNu1.png" alt="Signup Image">
             </div>
             <form method="POST" action="">
+
+                <!-- Select User Role -->
                 <div class="form-group">
-                    <input type="text" name="name" id="name" placeholder=" " class="signup-input-field" required>
-                    <label for="name">Full Name</label>
+                    <label class="role"></label>
+                    <select name="role" id="role" class="signup-input-field" onchange="handleRoleChange()" required>
+                        <option value="" disabled selected>Select Role</option>
+                        <option value="student">University staff</option>
+                        <option value="user">General User</option>
+                    </select>
+                </div>
+                <!-- Student ID Field -->
+                <div class="form-group" id="student-id-field" style="display: none;">
+                    <input type="text" name="student_id" id="student_id" placeholder=" " class="signup-input-field">
+                    <label for="student_id">Student ID</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="studentId" id="studentId" placeholder=" " class="signup-input-field" required>
-                    <label for="studentId">Student ID</label>
+                    <input type="text" name="first_name" id="first_name" placeholder=" " class="signup-input-field"
+                        required>
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="last_name" id="last_name" placeholder=" " class="signup-input-field"
+                        required>
+                    <label for="last_name">Last Name</label>
                 </div>
                 <div class="form-group">
                     <input type="email" name="email" id="email" placeholder=" " class="signup-input-field" required>
                     <label for="email">Email</label>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" id="password" placeholder=" " class="signup-input-field" required>
+                    <input type="password" name="password" id="password" placeholder=" " class="signup-input-field"
+                        required>
                     <label for="password">Password</label>
                 </div>
-                <button type="submit" class="signup-btn">Sign Up</a></button>
-            </form>            
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
             <p>Already have an account? <a href="index.html">Log In</a></p>
         </div>
-    </div>    
-</body>
+    </div>
+
     <script>
-        // Automatically hide the notification after 5 seconds
-        setTimeout(function() {
-            const notification = document.querySelector('.notification');
-            if (notification) {
-                notification.classList.remove('show');
+        // JavaScript function to handle role change
+        function handleRoleChange() {
+            const roleSelect = document.getElementById('role');
+            const studentIdField = document.getElementById('student-id-field');
+            if (roleSelect.value === 'student') {
+                studentIdField.style.display = 'block'; // Show Student ID field
+                document.getElementById('student_id').setAttribute('required', 'true');
+            } else {
+                studentIdField.style.display = 'none'; // Hide Student ID field
+                document.getElementById('student_id').removeAttribute('required');
             }
-        }, 5000);
+        }
     </script>
 </body>
+
 
 </html>
