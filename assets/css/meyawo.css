@@ -13491,16 +13491,6 @@
     overflow-y: auto;
   }
 
-  .ticket-card {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    /*width: calc(50% - 10px);*/
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-
   .event-card2 {
     background: white;
     border-radius: 12px;
@@ -15123,7 +15113,6 @@
     margin-top: 20px;
   }
 
-
   /*  */
   /*  */
   /*  */
@@ -15464,6 +15453,8 @@
     padding: 2px 6px;
   }
 
+
+
   /*  */
   /*  */
   /*  */
@@ -15492,9 +15483,8 @@
 
   .setting-tab.active {
     color: #ff5722;
-    border-bottom: 2px solid #9e4002;
+    border-bottom: 2px solid #ff5722;
     font-weight: bold;
-    color: #9e4002;
   }
 
   .setting-content {
@@ -15536,58 +15526,418 @@
 
   .setting-btn-outline-primary i {
     margin-right: 8px;
+    /* เพิ่มระยะห่างระหว่างไอคอนกับข้อความ */
+  }
+
+  /* Card Container */
+  .ticket-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* ใช้ relative เพื่อให้ตำแหน่งลูกอิงกับคอนเทนเนอร์นี้ */
+  }
+
+  /* Header Section */
+  .ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+  }
+
+  .ticket-header span {
+    font-size: 16px;
+    color: #ff5722;
+    font-weight: bold;
+  }
+
+  .ticket-header2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+  }
+
+  .ticket-header2 span {
+    font-size: 14px;
+    color: #264d13;
+    font-weight: bold;
+  }
+
+  .ticket-header3 span {
+    font-size: 14px;
+    color: #d4c217;
+    font-weight: bold;
+  }
+
+  .ticket-status-green {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #073316;
+    background: #eaffea;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .ticket-status-yellow {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #d4c217;
+    background: #fff7ab;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .ticket-status-red {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #eb1c1c;
+    background: #ffa3a3;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .ticket-header4 span {
+    font-size: 14px;
+    color: #eb1c1c;
+    font-weight: bold;
+  }
+
+  /* Body Section */
+  .ticket-body {
+    display: flex;
+    align-items: center;
+  }
+
+  .ticket-image {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 15px;
+  }
+
+  .ticket-details {
+    flex: 1;
+    margin-left: 25px;
+    text-align: left;
+  }
+
+  .ticket-details2 {
+    flex: 1;
+    margin-left: 10px;
+    text-align: left;
+  }
+
+  .ticket-details h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f68c2c;
+    margin-bottom: 5px;
+  }
+
+  .ticket-details p {
+    font-size: 14px;
+    color: #f68c2c;
+    margin: 2px 0;
+    font-weight: bold;
+  }
+
+  .ticket-details2 h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f68c2c;
+    margin-bottom: 5px;
+  }
+
+  .ticket-details2 p {
+    font-size: 14px;
+    color: #f68c2c;
+    margin: 2px 0;
+    font-weight: bold;
+  }
+
+  /* ปุ่ม ดูรายละเอียดคำสั่งซื้อ */
+  .ticket-link-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    border-bottom: 1px
+  }
+
+  .ticket-link {
+    font-size: 14px;
+    color: #ff5722;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .ticket-link i {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+
+  .ticket-link:hover {
+    text-decoration: underline;
+  }
+
+  .ticket-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 2px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
   }
 
 
+  .ticket-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* Refund Button */
+  .ticket-btn-refund {
+    color: #000;
+    border: 2px solid #ddd;
+  }
+
+  .ticket-btn-refund:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Reorder Button */
+  .ticket-btn-reorder {
+    color: #ff5722;
+    border: 2px solid #ff5722;
+  }
+
+  .ticket-btn-reorder:hover {
+    background-color: #ffece5;
+  }
+
+  /* ลิงก์ดูรายละเอียด */
+  .ticket-link2 {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff5722;
+    text-decoration: none;
+  }
+
+  .ticket-link2:hover {
+    text-decoration: underline;
+  }
+
+
+
   /*  */
   /*  */
   /*  */
-  /* PAYMENT */
-  .payment-body {
-    background-image: url(imgs/header.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  /* DETAIL */
+  detail-section {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .detail-section:last-child {
+    border-bottom: none;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  table td {
+    padding: 8px 0;
+    text-align: right;
+    color: #555;
+  }
+
+  table td:first-child {
+    text-align: left;
+  }
+
+  table .detail-summary td {
+    font-weight: bold;
+  }
+
+  table .detail-total td {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .detail-qr-code {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .detail-qr-frame {
+    display: flex;
+    /* ใช้ Flexbox */
+    align-items: center;
+    /* จัดให้อยู่กลางในแนวตั้ง */
+    justify-content: left;
+    /* จัดให้อยู่กลางในแนวนอน */
+    gap: 10px;
+    /* ระยะห่างระหว่างรูปกับข้อความ */
+    border: 1px solid #888;
+    /* เส้นกรอบสีเทาเข้ม */
+    padding: 10px;
+    /* ระยะห่างภายในกรอบ */
+    border-radius: 8px;
+    /* มุมโค้งของกรอบ */
+  }
+
+  .detail-qr-frame img {
+    max-width: 150px;
+  }
+
+  .detail-qr-frame p {
+    font-size: 14px;
+    color: #555;
     margin: 0;
-    height: 100vh;
-  }
-
-  .payment-page {
-    background-image: url(imgs/header.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    height: 100vh;
+    /* ลบระยะห่างของ p */
+    white-space: nowrap;
+    /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
   }
 
 
-  /*  */
-  /*  */
-  /*  */
-  /* PURCHASE */
-  .purchase-page {
-    background-image: url(imgs/header.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    height: 100vh;
-  }
+
 
 
   /*  */
   /*  */
   /*  */
-  /* PENDING */
-  .pending-page {
-    background-image: url(imgs/header.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    height: 100vh;
+  /* SEARCH HOME*/
+  /* Popup Styles */
+  .searchhome-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto;
   }
+
+  .searchhome-popup-header {
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .searchhome-popup-input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .searchhome-popup-close-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .searchhome-popup-close-btn:hover {
+    background-color: #d32f2f;
+  }
+
+  .searchhome-popup-body {
+    width: 90%;
+    max-width: 860px;
+    max-height: 80vh;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow-y: auto;
+  }
+
+  .event-card2 {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    width: calc((100% - 40px) / 3);
+    /* ลดความกว้างของการ์ด */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-input2 {
+    border: #000;
+    border-radius: 8px;
+    outline: none;
+    padding: 7px 10px;
+    width: 600px;
+    font-size: 14px;
+  }
+
+  .search-input2::placeholder {
+    font-weight: bold;
+    font-size: small;
+    color: rgba(128, 128, 128, 0.4);
+    /* สีเทาจางสำหรับ placeholder */
+  }
+
 
   /*  */
   /*  */
