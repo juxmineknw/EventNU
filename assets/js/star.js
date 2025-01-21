@@ -1,3 +1,9 @@
+function toggleStar(starElement) {
+  const icon = starElement; // ไอคอนที่ถูกคลิก
+  icon.classList.toggle("fas"); // สลับเป็นดาวเต็มดวง
+  icon.classList.toggle("far"); // สลับเป็นดาวโปร่ง
+}
+
 //
 // // 
 //STARPUSH

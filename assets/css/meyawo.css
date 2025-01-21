@@ -12747,6 +12747,7 @@
     -webkit-transition: all, 0.3s;
     transition: all, 0.3s;
     font-family: 'Baloo Paaji', cursive;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.11);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -13425,6 +13426,108 @@
     align-items: center;
   }
 
+  /* Popup Styles */
+  .searchhome-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .searchhome-popup-header {
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .searchhome-popup-input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .searchhome-popup-close-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .searchhome-popup-close-btn:hover {
+    background-color: #d32f2f;
+  }
+
+  .searchhome-popup-body {
+    width: 90%;
+    max-width: 860px;
+    max-height: 80vh;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow-y: auto;
+  }
+
+  .ticket-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    /*width: calc(50% - 10px);*/
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .event-card2 {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    width: calc((100% - 40px) / 3);
+    /* ลดความกว้างของการ์ด */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-input2 {
+    border: #000;
+    border-radius: 8px;
+    outline: none;
+    padding: 7px 10px;
+    width: 600px;
+    font-size: 14px;
+  }
+
+  .search-input2::placeholder {
+    font-weight: bold;
+    font-size: small;
+    color: rgba(128, 128, 128, 0.4);
+    /* สีเทาจางสำหรับ placeholder */
+  }
+
   /* Home image */
   .image-container {
     padding: 15px;
@@ -13517,7 +13620,7 @@
 
   .calendar-header .year-number {
     font-size: 1rem;
-    color: var(--gray);
+    color: #333;
     margin: 0;
   }
 
@@ -13748,7 +13851,7 @@
   .event-container .details-title {
     font-size: 1.8rem;
     font-family: sans-serif;
-    color: #ff8c42;
+    color: var(--darkorange);
     text-align: center;
     margin-bottom: 20px;
     margin-right: 400px;
@@ -13983,6 +14086,7 @@
     margin: 0;
     font-size: 24px;
     flex-grow: 1;
+    color: var(--darkorange);
   }
 
   .detail-button {
@@ -14026,7 +14130,7 @@
     font-family: sans-serif;
     font-size: 16px;
     font-weight: bold;
-    color: #ff8c42;
+    color: var(--orange);
   }
 
   .dot {
@@ -14080,13 +14184,14 @@
   .event-card-content h3 {
     margin: 0;
     font-size: 16px;
-    color: var(--orange);
+    color: var(--darkorange);
   }
 
   .event-card-content p {
     margin: 0;
     font-size: 12px;
     color: #555;
+    font-weight: bold;
   }
 
   .event-card-description {
@@ -14195,19 +14300,19 @@
     top: 50%;
     left: 50%;
     width: 20%;
-    height: 20%; 
+    height: 20%;
     transform: translate(-50%, -50%);
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    background-color: #fff; 
+    background-color: #fff;
     padding: 20px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
   }
 
   .activity-bottom {
     display: flex;
     flex: 1;
-}
+  }
 
   .activity-bottom-left {
     background-color: #2a9d8f;
@@ -14305,18 +14410,27 @@
 
 
   .event-details {
-    padding: 15px;
+    padding: 5px;
+    margin-left: 15px;
+  }
+
+  .event-date {
+    margin-top: 5px;
+    color: gray;
+    font-weight: bold;
+    font-size: 16px;
   }
 
   .event-date-red {
-    color: red;
+    color: gray;
     font-weight: bold;
+    font-size: 16px;
   }
 
   .event-title {
     font-size: 18px;
     font-weight: bold;
-    margin: 5px 0;
+    margin: 2px 0;
   }
 
   .event-description {
@@ -14325,77 +14439,30 @@
   }
 
   .event-location {
-    font-size: 12px;
+    font-size: 14px;
     color: #999;
-  }
-
-
-  /*  */
-  /*  */
-  /*  */
-  /* Setting */
-  .profile-container {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 1110px;
-    height: 140px;
-    margin-top: 30px;
-  }
-
-  .profile-info {
-    display: flex;
-    align-items: center;
-  }
-
-  .profile-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 80%;
-    object-fit: cover;
-    margin-right: 20px;
-  }
-
-  .profile-name {
-    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
     font-weight: bold;
   }
 
-  .edit-btn {
-    background-color: #ff8c42;
-    color: white;
+  .details-btnn {
+    display: block;
+    margin: 30px auto 20px;
     padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
+    background-color: white;
+    color: #EB8826;
+    font-size: 14px;
+    border: 2px solid #EB8826;
+    border-radius: 25px;
     cursor: pointer;
-    font-size: 16px;
-    margin-right: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
   }
 
-  .edit-btn:hover {
-    background-color: #e77a2b;
-  }
-
-  .bio-container {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-
-  .bio-textarea {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    resize: vertical;
+  .details-btnn:hover {
+    background-color: #EB8826;
+    color: white;
   }
 
   /*  */
@@ -15061,15 +15128,6 @@
   /*  */
   /*  */
   /* Setting */
-  .setting-page {
-    background-image: url(imgs/header.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    height: 100vh;
-  }
-
   .setting-profile-container {
     background-color: #f0f0f0;
     border-radius: 10px;
@@ -15136,17 +15194,24 @@
 
   .setting-bio-textarea:focus {
     outline: none;
+    /* ลบเส้นขอบเดิม */
     border: 2px solid #f68c2c;
+    /* เพิ่มความหนาของกรอบเป็น 2px */
   }
 
   .form-group-wrapper {
     display: flex;
+    /* ใช้ Flexbox จัดเรียงฟิลด์ในแนวนอน */
     justify-content: space-between;
+    /* จัดระยะห่างระหว่าง Gender และ Birthday */
     align-items: flex-start;
+    /* จัดให้อยู่ด้านบนสุด */
     width: 100%;
-    max-width: 1300px;
+    max-width: 1200px;
+    /* ขยายความกว้างของคอนเทนเนอร์ */
     margin-top: 5px;
     background-color: #f0f0f0;
+    /* สีพื้นหลัง */
   }
 
   .form-container {
@@ -15160,7 +15225,9 @@
   .form-group,
   .birthday-container {
     flex: 1;
+    /* แบ่งพื้นที่เท่าๆ กันระหว่างสองคอนเทนเนอร์ */
     max-width: 48%;
+    /* จำกัดความกว้างของแต่ละคอนเทนเนอร์ */
   }
 
   .custom-select-container,
@@ -15171,6 +15238,7 @@
 
   .birthday-input {
     width: 100%;
+    /* ให้ฟิลด์เต็มความกว้างของคอนเทนเนอร์ */
     padding: 10px 40px 10px 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -15181,15 +15249,21 @@
   select {
     width: 100%;
     padding: 10px 40px 10px 10px;
+    /* เผื่อพื้นที่สำหรับไอคอน */
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
     appearance: none;
+    /* ซ่อนลูกศรค่าเริ่มต้น */
     -webkit-appearance: none;
+    /* สำหรับ Safari */
     -moz-appearance: none;
+    /* สำหรับ Firefox */
     cursor: pointer;
     background-color: #fff;
+    /* ป้องกันลูกศรที่มาจาก background */
     background-image: none;
+    /* ลบไอคอนลูกศรที่ฝังในเบราว์เซอร์ */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
@@ -15222,16 +15296,21 @@
 
   select:focus {
     outline: none;
+    /* ลบเส้นขอบเดิม */
     border: 2px solid #f68c2c;
+    /* เพิ่มความหนาของกรอบเป็น 2px */
   }
 
   .birthday-input:focus {
     outline: none;
+    /* ลบเส้นขอบเดิม */
     border: 2px solid #f68c2c;
+    /* เพิ่มความหนาของกรอบเป็น 2px */
   }
 
   .flatpickr-day.selected {
     background-color: #ff8c42;
+    /* เปลี่ยนเป็นสีส้ม */
     color: white;
   }
 
@@ -15246,7 +15325,9 @@
   .form-group2,
   .birthday-container2 {
     flex: 1;
+    /* แบ่งพื้นที่เท่าๆ กันระหว่างสองคอนเทนเนอร์ */
     max-width: 32%;
+    /* จำกัดความกว้างของแต่ละคอนเทนเนอร์ */
   }
 
   .custom-select-container2,
@@ -15257,6 +15338,7 @@
 
   .password-input {
     width: 100%;
+    /* ให้ฟิลด์เต็มความกว้างของคอนเทนเนอร์ */
     padding: 10px 40px 10px 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -15267,21 +15349,28 @@
 
   .password-input:focus {
     outline: none;
+    /* ลบเส้นขอบเดิม */
     border: 2px solid #f68c2c;
+    /* เพิ่มความหนาของกรอบเป็น 2px */
   }
 
   /* สไตล์คอนเทนเนอร์หลัก */
   .form-group-wrapper2 {
     display: flex;
+    /* ใช้ Flexbox จัดเรียงฟิลด์ในแนวนอน */
     justify-content: space-between;
+    /* จัดระยะห่างระหว่าง Gender และ Birthday */
     margin-top: 40px;
 
   }
 
   .setting-form-group-wrapper3 {
     display: flex;
+    /* ใช้ Flexbox จัดเรียงฟิลด์ในแนวนอน */
     justify-content: space-between;
+    /* จัดระยะห่างระหว่าง Gender และ Birthday */
     background-color: #f0f0f0;
+    /* สีพื้นหลัง */
     padding: 20px;
     border-radius: 10px;
     max-width: 1200px;
@@ -15294,10 +15383,12 @@
 
   .setting-privacy-section {
     margin-bottom: 40px;
+    /* เพิ่มระยะห่างจากส่วนอื่น */
   }
 
   .setting-privacy-section h2 {
     margin-bottom: 10px;
+    /* ระยะห่างระหว่างหัวข้อกับ container */
   }
 
   /* คอนเทนเนอร์ฟิลด์ */
@@ -15319,17 +15410,22 @@
   /* ฟิลด์รหัสผ่าน */
   .setting-password-field {
     flex: 1;
+    /* ขยายความกว้างเท่ากัน */
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 10px;
+    /* ขอบมน */
     background-color: #ffffff;
     text-align: center;
   }
 
+  /* เพิ่มเอฟเฟกต์ hover */
   .setting-password-field:focus {
     outline: none;
+    /* ลบเส้นขอบเดิม */
     border: 2px solid #f68c2c;
+    /* เพิ่มความหนาของกรอบเป็น 2px */
   }
 
   /*ticket*/
@@ -15396,8 +15492,9 @@
 
   .setting-tab.active {
     color: #ff5722;
-    border-bottom: 2px solid #ff5722;
+    border-bottom: 2px solid #9e4002;
     font-weight: bold;
+    color: #9e4002;
   }
 
   .setting-content {
@@ -15446,6 +15543,15 @@
   /*  */
   /*  */
   /* PAYMENT */
+  .payment-body {
+    background-image: url(imgs/header.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
+  }
+
   .payment-page {
     background-image: url(imgs/header.jpg);
     background-size: cover;
@@ -15492,11 +15598,12 @@
     text-align: center;
     padding: 10px 0;
   }
+
   /* Footer HOME */
   .event-card-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 50px;
-    color: #ff8c42;
+    color: var(--orange);
   }

@@ -4,13 +4,17 @@ const categories = [
   { name: "Charity", icon: "fas fa-gift" },
   { name: "Concert", icon: "fas fa-music" },
   { name: "Market", icon: "fas fa-shopping-basket" },
-  { name: "Sports", icon: "fas fa-futbol" }
+  { name: "Sports", icon: "fas fa-futbol" },
+  { name: "Study", icon: "fas fa-book"}
 ];
 
 // ข้อมูลกิจกรรม
 const events = [
-  { name: "Theater Play", category: "Theater", image: "image1.jpg", time: "19:00", date: "2024-12-29", location: "Theater", locationDetails: "Located at the main city theater, near the central park.", ticketPrice: "120 Baht" },
-  { name: "Sports Competition", category: "Sports", image: "image4.jpg", time: "10:00", date: "2024-12-30", location: "Sports Arena", locationDetails: "At the Sports Arena, opposite the city mall.", ticketPrice: "Free" }
+  { name: "Theater Play", category: "Theater", image: "image1.jpg", time: "19:00", date: "12 december 2024", location: "Theater", details: "Located at the main city theater, near the central park.", ticketPrice: "120 Baht" },
+  { name: "Sports Competition", category: "Sports", image: "image4.jpg", time: "10:00", date: "2024-12-30", location: "Sports Arena", details: "At the Sports Arena, opposite the city mall.", ticketPrice: "Free" },
+  { name: "YaYai", category: "Concert", image: "image1.jpg", time: "19:00", date: "2024-12-29", location: "Theater", details: "Located at the main city theater, near the central park.", ticketPrice: "120 Baht" },
+  { name: "KUY", category: "Market", image: "image1.jpg", time: "19:00", date: "2024-12-29", location: "Theater", details: "Located at the main city theater, near the central park.", ticketPrice: "120 Baht" },
+  { name: "Theater Play", category: "Charity", image: "image1.jpg", time: "19:00", date: "2024-12-29", location: "Theater", details: "Located at the main city theater, near the central park.", ticketPrice: "120 Baht" }
 ];
 
 // ฟังก์ชันสำหรับการเลื่อนหมวดหมู่
@@ -41,37 +45,75 @@ function createCategoriesBlocks() {
   });
 }
 
+// ฟังก์ชันสำหรับการเลื่อนกิจกรรม
+function scrollEvents(direction) {
+  const container = document.querySelector(".event-card-container");
+  const scrollAmount = container.offsetWidth / 3;
+
+  container.scrollBy({
+    left: direction * scrollAmount,
+    behavior: "smooth",
+  });
+}
+
 // ฟังก์ชันกรองกิจกรรมตามหมวดหมู่ที่เลือก
 function filterEventsByCategory(selectedCategory) {
   const eventContainer = document.querySelector(".event-card-container");
   eventContainer.innerHTML = ""; // ลบการ์ดกิจกรรมเก่าออก
 
-  // กรองกิจกรรมที่ตรงกับหมวดหมู่ที่เลือก
-  const filteredEvents = events.filter(event => event.category === selectedCategory || selectedCategory === "All");
+  let filteredEvents;
 
-   // แสดงกิจกรรมที่กรองออกมา
-   filteredEvents.forEach(event => {
+  // กรองกิจกรรมตามหมวดหมู่
+  if (selectedCategory === "Random") {
+    filteredEvents = getRandomEvents(); // แสดงกิจกรรมสุ่ม 2 รายการ
+  } else {
+    filteredEvents = events.filter(event => event.category === selectedCategory); // กรองกิจกรรมตามหมวดหมู่ที่เลือก
+  }
+
+  // แสดงกิจกรรมที่กรองออกมา
+  filteredEvents.forEach(event => {
     const eventCard = document.createElement("div");
     eventCard.classList.add("event-card");
     eventCard.innerHTML = `
-      <div class="event-card-image" style="background-image: url('${event.image}');"></div>
-      <div class="event-card-content">
-        <h3>${event.name}</h3>
-        <p><i class="fas fa-clock"></i> ${event.time}</p>
-        <p><i class="fas fa-calendar-alt"></i> ${event.date}</p>
-        <p><i class="fas fa-map-marker-alt"></i> ${event.location}</p>
-        <p class="event-location-details">${event.locationDetails}</p> <!-- แสดงรายละเอียดสถานที่ -->
-        <div class="event-card-footer">
-          <span><i class="fas fa-ticket-alt"></i> ${event.ticketPrice}</span>
-          <button class="event-detail-btn">Detail</button>
-          <div class="event-star-button" onclick="toggleStar(this)">
-            <i class="fas fa-star"></i>
+        <div class="event-card-image" style="background-image: url('${event.image}');"></div>
+        <div class="event-card-content">
+          <h3>${event.name}</h3>
+          <p><i class="fas fa-clock"></i> ${event.time}</p>
+          <p><i class="fas fa-calendar-alt"></i> ${event.date}</p>
+          <p><i class="fas fa-map-marker-alt"></i> ${event.location}</p>
+          <p class="event-location-details">${event.details}</p>
+          <div class="event-card-footer">
+            <span><i class="fas fa-ticket-alt"></i> ${event.ticketPrice}</span>
+            <button class="event-detail-btn">Detail</button>
+            <div class="event-star-button" onclick="toggleStar(this)">
+              <i class="fas fa-star"></i>
+            </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
     eventContainer.appendChild(eventCard);
   });
+
+  // ถ้ามีกิจกรรมมากกว่า 2 รายการ, ให้แสดงปุ่มเลื่อน
+  if (filteredEvents.length > 2) {
+    document.querySelector(".scroll-btn.left").style.display = "block";
+    document.querySelector(".scroll-btn.right").style.display = "block";
+  } else {
+    // ซ่อนปุ่มเลื่อนหากจำนวนกิจกรรมไม่ถึง 2
+    document.querySelector(".scroll-btn.left").style.display = "none";
+    document.querySelector(".scroll-btn.right").style.display = "none";
+  }
+}
+
+// ฟังก์ชันสำหรับการสุ่มกิจกรรม 2 รายการ
+function getRandomEvents() {
+  const randomEvents = [];
+  // สุ่มเลือกกิจกรรม 2 รายการ
+  const shuffledEvents = events.sort(() => 0.5 - Math.random());
+  for (let i = 0; i < 2; i++) {  // แสดงแค่ 2 กิจกรรมสุ่ม
+    randomEvents.push(shuffledEvents[i]);
+  }
+  return randomEvents;
 }
 
 // ฟังก์ชันเลือกหมวดหมู่
@@ -94,5 +136,5 @@ function toggleStar(starElement) {
 // เรียกฟังก์ชันเมื่อหน้าโหลดเสร็จ
 window.onload = function () {
   createCategoriesBlocks();
-  filterEventsByCategory("All"); // เริ่มต้นแสดงกิจกรรมทั้งหมด
+  filterEventsByCategory("Random"); // เริ่มต้นแสดงกิจกรรมสุ่ม 2 รายการ
 };

@@ -37,3 +37,42 @@ $('#nav-toggle').click(function(){
     $('ul.nav').toggleClass('show');
 });
 
+// Setting
+document.addEventListener("DOMContentLoaded", function () {
+    const editButton = document.querySelector(".setting-edit-btn");
+    const bioTextarea = document.querySelector(".setting-bio-textarea");
+    const genderSelect = document.querySelector("#gender");
+    const birthdayInput = document.querySelector("#birthday");
+    const privacySection = document.querySelector(".setting-privacy-section");
+
+    let isEditing = false; // สถานะว่ากำลังแก้ไขหรือไม่
+
+    editButton.addEventListener("click", function () {
+        if (!isEditing) {
+            // กดปุ่ม Edit: เปิดการแก้ไข
+            bioTextarea.disabled = false;
+            genderSelect.disabled = false;
+            birthdayInput.disabled = false;
+
+            // แสดงส่วน Privacy
+            privacySection.style.display = "block";
+
+            editButton.innerHTML = `<i class="fas fa-check"></i> Confirm`; // เปลี่ยนปุ่มเป็น Confirm
+            isEditing = true;
+        } else {
+            // กดปุ่ม Confirm: ปิดการแก้ไข
+            bioTextarea.disabled = true;
+            genderSelect.disabled = true;
+            birthdayInput.disabled = true;
+
+            // ซ่อนส่วน Privacy
+            privacySection.style.display = "none";
+
+            editButton.innerHTML = `<i class="fas fa-edit"></i> Edit`; // เปลี่ยนปุ่มกลับเป็น Edit
+            isEditing = false;
+        }
+    });
+
+    // ซ่อนส่วน Privacy โดยดีฟอลต์
+    privacySection.style.display = "none";
+});
