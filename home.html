@@ -32,19 +32,13 @@
                     <a class="link" href="home.html">Home</a>
                 </li>
                 <li class="item">
-                    <a class="link" href="calendar.html">Calendar</Details></a>
-                </li>
-                <li class="item">
                     <a class="link" href="favorite.html">Favorite</a>
                 </li>
                 <li class="item">
                     <a class="link" href="layout.html">Layout</a>
                 </li>
-                <li class="item">
-                    <a class="link" href="setting.html">Setting</a>
-                </li>
                 <li class="item ml-md-3">
-                    <a href="components.html" class="btn btn-primary">Components</a>
+                    <a href="setting.html" class="btn btn-primary">Setting</a>
                 </li>
             </ul>
             <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
@@ -83,15 +77,15 @@
                     <div class="image-container">
                         <img src="assets/imgs/chrismas.jpeg" alt="Image" class="image">
                         <div class="detailbutton">
-                            <button class="detail-btn">Detail</button>
+                            <a href="activity.html  "><button class="detail-btn">Detail</button></a>
                         </div>
                     </div>
                     <h6 class="section-title mb-6" style="font-size: 30px;">Upcoming Event</h6>
-                    <div class="faculty-wrapper">
+                    <div class="categories-wrapper">
                         <button class="arrow" onclick="scrollFaculties(-1)">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <div class="faculty-container" id="facultyContainer">
+                        <div class="categories-container" id="categoriesContainer">
                             <!-- บล็อกคณะใช้ JavaScript -->
                         </div>
                         <button class="arrow" onclick="scrollFaculties(1)">
@@ -101,48 +95,7 @@
                     <!-- คอนเทนเนอร์แรก -->
                     <div class="main-container">
                         <div class="event-card-container">
-                            <!-- Card 1 -->
-                            <div class="event-card">
-                                <div class="event-card-image"
-                                    style="background-image: url('https://www.workpoint.co.th/storage/newsroom/press-releases/2023/12/20231204-090931-1.webp');">
-                                </div>
-                                <div class="event-card-content">
-                                    <h3>มนต์รักทรายทอง</h3>
-                                    <p><i class="fas fa-clock"></i> 19:00 - 21:00</p>
-                                    <p><i class="fas fa-calendar-alt"></i> 29 December 2024</p>
-                                    <p><i class="fas fa-map-marker-alt"></i> Performance Art Theater</p>
-                                    <p class="event-card-description">Ipsum has been the industry's standard dummy text
-                                        ever since the 1500s...</p>
-                                    <div class="event-card-footer">
-                                        <span><i class="fas fa-ticket-alt"></i> 120 Baht</span>
-                                        <button class="event-detail-btn">Detail</button>
-                                        <div class="event-star-button" onclick="toggleStar(this)">
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card 2 -->
-                            <div class="event-card">
-                                <div class="event-card-image"
-                                    style="background-image: url('https://cdn.pixabay.com/photo/2018/05/10/11/34/concert-3387324_640.jpg');">
-                                </div>
-                                <div class="event-card-content">
-                                    <h3>new year party</h3>
-                                    <p><i class="fas fa-clock"></i> 19:00 - 24:00</p>
-                                    <p><i class="fas fa-calendar-alt"></i> 31 December 2024</p>
-                                    <p><i class="fas fa-map-marker-alt"></i> NU</p>
-                                    <p class="event-card-description">Ipsum has been the industry's standard dummy text
-                                        ever since the 1500s...</p>
-                                    <div class="event-card-footer">
-                                        <span><i class="fas fa-ticket-alt"></i> Free</span>
-                                        <button class="event-detail-btn">Detail</button>
-                                        <div class="event-star-button" onclick="toggleStar(this)">
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Card -->
                         </div>
                     </div>
                 </div>
@@ -195,23 +148,6 @@
         </div><!-- end of container -->
     </section> <!-- end of about section -->
 
-
-    <!-- footer -->
-    <div class="container">
-        <footer class="footer">
-            <p class="mb-0">
-                <script>document.write(new Date().getFullYear())</script>
-                <a href="https://www.nu.ac.th/">Naresuan University</a>
-            </p>
-            <div class="social-links text-right m-auto ml-sm-auto">
-                <a href="https://www.facebook.com/nu.university" class="link"><i class="ti-facebook"></i></a>
-                <a href="https://www.nu.ac.th/" class="link"><i class="ti-google"></i></a>
-                <a href="https://www.nu.ac.th/?page_id=5013" class="link"><i class="ti-email"></i></a>
-                <a href="https://www.google.com/maps?q=Naresuan+University" class="link" target="_blank"><i class="ti-location-pin"></i>
-            </div>
-        </footer>
-    </div> <!-- end of page footer -->
-
     <!-- core  -->
     <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
     <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
@@ -222,9 +158,9 @@
     <!-- Meyawo js -->
     <script src="assets/js/meyawo.js"></script>
     <!-- event date -->
-    <script src="assets/js/ืdate.js"></script>
+    <script src="assets/js/date.js"></script>
     <!-- select faclty -->
-    <script src="assets/js/faculty.js"></script>
+    <script src="assets/js/categories.js"></script>
     <!-- star -->
     <script src="assets/js/star.js"></script>
 

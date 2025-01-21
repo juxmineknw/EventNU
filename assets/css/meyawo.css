@@ -21,7 +21,7 @@
     --pink: #e83e8c;
     --red: #ec185d;
     --orange: #EB8826;
-    --darkorange :#9e4002;
+    --darkorange: #9e4002;
     --yellow: #ffc107;
     --green: #1bb74f;
     --teal: #20c997;
@@ -13802,7 +13802,7 @@
   }
 
 
-  .faculty-wrapper {
+  .categories-wrapper {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -13810,14 +13810,14 @@
     margin-top: -50px;
   }
 
-  .faculty-container {
+  .categories-container {
     display: flex;
     overflow: hidden;
     width: 70%;
     max-width: 500px;
   }
 
-  .faculty-block {
+  .categories-block {
     width: 200px;
     height: 50px;
     text-align: left;
@@ -13832,30 +13832,30 @@
     align-items: center;
   }
 
-  .faculty-block:hover {
+  .categories-block:hover {
     transform: scale(1.05);
   }
 
-  .faculty-block.selected {
+  .categories-block.selected {
     font-weight: bold;
     background-color: var(--orange);
   }
 
-  .faculty-block.selected i {
+  .categories-block.selected i {
     color: white !important;
   }
 
-  .faculty-block.selected p {
+  .categories-block.selected p {
     color: white !important;
   }
 
-  .faculty-block i {
+  .categories-block i {
     font-size: 18px;
     color: var(--orange);
     margin-right: 15px;
   }
 
-  .faculty-block p {
+  .categories-block p {
     margin: 0;
     font-size: 16px;
     font-weight: normal;
@@ -14094,14 +14094,6 @@
     color: #999;
   }
 
-  .event-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 8px;
-    color: #ff8c42;
-  }
-
   .event-detail-btn {
     background: white;
     color: #ff8c42;
@@ -14167,193 +14159,77 @@
 
   /*  */
   /*  */
-  /* EVENT */
-  .activity-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  /* ACTIVITY */
+  .activity-body {
     margin: 0;
-    position: relative;
-  }
-
-  .activity-page::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    background-image: url('assets/imgs/พุ่งใต้เฟส.webp'); /* รูปภาพพื้นหลัง */
-    background-size: cover;
-    background-position: center center;
-    border: 4px solid white; /* กรอบสีขาว */
-    border-radius: 15px; /* ขนาดมุมโค้ง */
-    z-index: -1; /* ให้กรอบสีขาวอยู่หลังสุด */
-  }
-
-  .activity {
-    position: relative;
+    padding: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.7); /* สีพื้นหลังโปร่งแสง */
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 700px;
-    max-width: 90%;
-    text-align: center;
-    box-sizing: border-box;
+    flex-direction: column;
+    height: 100vh;
   }
 
-  .large-box {
-    position: absolute;
-    top: 100px;
-    left: 0;
+  .activity-top {
     width: 100%;
-    height: 70%;
-    background: rgba(0, 0, 255, 0.5); 
-    z-index: 1;
-    padding: 20px;
-    background-image: url('../imgs/พุ่งใต้เฟส.webp');
-    background-size: cover; 
-    background-position: center;
-    overflow: hidden;   
+    height: 30%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex: 1.5;
+    align-items: center;
+    overflow: hidden;
+    /* ป้องกันการเกินขอบ */
+    position: relative;
   }
 
-.large-box::after {
-    content: "";
-    position: absolute;
-    top: -40px;
-    right: -20px;
+  .activity-top img {
+    display: flex;
     width: 100%;
     height: 100%;
-    background-image: url('../imgs/พุ่งใต้เฟส.webp');
-    background-size: cover;
-    background-position: center;
-    filter: blur(20px) contrast(0.8) brightness(0.5);
-    z-index: -1; 
-    transform: scale(1.5, 2);
-}
+    object-fit: cover;
+    filter: brightness(0.3) saturate(1.5) blur(10px);
+  }
 
-
-  .small-box {
+  .activity-inner {
+    display: flex;
     position: absolute;
-    top: 160px;
-    left: 25%;
-    width: 50%;
-    height: 55%;
-    background: #fff; 
-    z-index: 2;
-    padding: 20px;
-    border-radius: 20px;
-    color: white;
-    background-size: cover;
-    background-position: center;
-  }
-
-
-  .box-content {
-    display: flex;
-    flex-direction: row; 
-    width: 100%;
-  }
-
-  .box-left {
-    flex: 1.2;
-    margin-right: 20px; 
-  }
-
-  .activity-image {
-    width: 100%;
-    height: 200%; 
-    object-fit: cover; 
-  }
-
-  .box-right {
-    flex: 2; 
-    margin-left: 20px;
-  }
-
-  .box-right h3 { 
-    color: #333;
-  }
-
-  .icons i {
-    font-size: 20px;
-    margin-top: 20px;
-    margin-left: 20px;
-    cursor: pointer;
-    transition: transform 0.3s; 
-    color: #333;
-  }
-
-
-  .icons i:hover {
-    transform: scale(1.2);
-  }
-
-  .fas.fa-star {
-    color: gray; /* สีสำหรับดาวที่ไม่เต็ม */
-}
-
-.fas.fa-star.filled {
-    color: var(--darkorange); /* สีสำหรับดาวที่เต็ม */
-}
-
-  .filled {
-    color: gold;
-  }
-
-  .empty {
-    color: gray;
-  }
-
-  .activity-info {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #333;
-    display: flex;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    height: 20%; 
+    transform: translate(-50%, -50%);
+    justify-content: space-between; 
     align-items: center;
+    background-color: #fff; 
+    padding: 20px;
+    box-sizing: border-box; 
+  }
+
+  .activity-bottom {
+    display: flex;
+    flex: 1;
 }
 
-.activity-info .icon-circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #ff8c42; /* สีพื้นหลังของวงกลม */
+  .activity-bottom-left {
+    background-color: #2a9d8f;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10px; /* ระยะห่างจากข้อความ */
-}
-
-.activity-info .icon-circle i {
-    color: white; /* สีของไอคอนในวงกลม */
-    font-size: 18px; /* ขนาดไอคอน */
-}
-
-  .event-image-box {
-    width: 80%;
-    height: 70%;
-    max-height: 300px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    border-radius: 10px;
   }
 
-  .event-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+
+  .activity-bottom-right {
+    background-color: #e76f51;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 
   /*  */
   /*  */
-  /* Faverite */
+  /* Favorite */
   .favorite-section {
     display: flex;
     flex-direction: column;
@@ -14574,16 +14450,16 @@
   }
 
   .login-page::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(to top, #fff 0%, rgba(255, 145, 77, 0.35) 99%, rgba(255, 145, 77, 0.5) 100%);
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, #fff 0%, rgba(255, 145, 77, 0.35) 99%, rgba(255, 145, 77, 0.5) 100%);
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
 
   .login-input-field {
     width: 270px;
@@ -14736,7 +14612,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 1000px; 
+    max-width: 1000px;
     gap: 20px;
     background: linear-gradient(to right, #ffb485, #ffc79c, #ffd9b2);
   }
@@ -14752,7 +14628,7 @@
     font-size: 28px;
     margin-bottom: 15px;
     color: #ac512a;
-    margin-right: 70px; 
+    margin-right: 70px;
   }
 
   .register-label {
@@ -14803,7 +14679,7 @@
     background: rgba(240, 240, 240, 0.8);
   }
 
-  .register-input:focus{
+  .register-input:focus {
     background: rgba(240, 240, 240, 0.8);
     transform: scale(1.02) translateY(5px);
     transition: transform 0.2s ease;
@@ -14826,17 +14702,17 @@
   }
 
   .register-image {
-    width: 500px; 
-    height: 500px; 
-    overflow: hidden;  
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
     border-radius: 10px;
     margin: 5px;
   }
 
   .register-image img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
 
@@ -15019,16 +14895,17 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-weight: bold;
-}
+  }
 
-.signup-button:hover {
-  background: linear-gradient(to left, #f8c8d0, #c8a9d1);
-  color: #000;
-}
+  .signup-button:hover {
+    background: linear-gradient(to left, #f8c8d0, #c8a9d1);
+    color: #000;
+  }
 
-.signup-link {
+  .signup-link {
     margin-top: 15px;
-}
+  }
+
   .alert {
     color: white;
     background-color: red;
@@ -15043,8 +14920,8 @@
   /*  */
   /*  */
   /* TOPAY */
-  .topay-page{
-      margin: 0;
+  .topay-page {
+    margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     display: flex;
@@ -15059,123 +14936,124 @@
   }
 
   .topay-page::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(to top, #fff 0%, rgba(255, 145, 77, 0.35) 99%, rgba(255, 145, 77, 0.5) 100%);
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, #fff 0%, rgba(255, 145, 77, 0.35) 99%, rgba(255, 145, 77, 0.5) 100%);
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
 
   .topay-layout-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px; 
-      gap: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    gap: 100px;
   }
 
   .topay-left-section {
-      flex: 4; 
-      max-width: 300px;
+    flex: 4;
+    max-width: 300px;
   }
 
   .topay-right-section {
-      flex: 4; 
-      text-align: center; 
+    flex: 4;
+    text-align: center;
   }
 
   .topay-container {
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      width: 100%;
-      max-width: 1000px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
   }
 
   .topay-container h2 {
-      color: #ac512a;
-      margin-bottom: 70px;
+    color: #ac512a;
+    margin-bottom: 70px;
   }
 
   .topay-label {
-      font-size: 16px;
-      color: #ac512a;
-      font-weight: bold;
+    font-size: 16px;
+    color: #ac512a;
+    font-weight: bold;
   }
 
   .topay-input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
   }
 
   .topay-btn {
-      background-color: #ac512a;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      margin-top: 10px;
-      display: inline-block;
-      margin: 10px auto;
+    background-color: #ac512a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    display: inline-block;
+    margin: 10px auto;
   }
 
   .topay-btn:hover {
-      background-color: #e77a2b;
+    background-color: #e77a2b;
   }
 
   .topay-info {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #666;
-      text-align: start;
-      margin-left: 40px;
-      font-weight: bold;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: start;
+    margin-left: 40px;
+    font-weight: bold;
   }
 
   .topay-info strong {
-      color: #ac512a;
-      font-weight: bold;
+    color: #ac512a;
+    font-weight: bold;
   }
 
   .topay-canvas {
-      margin-top: 20px;
-      max-width: 100%;
-      max-height: 300px;
-      margin-bottom: 20px;
-      border: 3px solid #ac512a; /* กรอบสวยๆ */
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 100%;
+    max-height: 300px;
+    margin-bottom: 20px;
+    border: 3px solid #ac512a;
+    /* กรอบสวยๆ */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   .topay-price {
-      font-size: 18px;
-      color: #333;
-      font-weight: bold;
-      margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
   }
 
   #slipImagePreview img {
-      width: 100%;
-      height: auto;
-      border: 1px solid #ddd;
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
   }
 
   #confirmActivityBtn {
-      display: none;
-      margin-top: 20px;
+    display: none;
+    margin-top: 20px;
   }
 
 
@@ -15609,8 +15487,16 @@
   /*  */
   /*  */
   /* FOOTER */
-  footer.footer {
+  .footer {
     color: white;
     text-align: center;
     padding: 10px 0;
+  }
+  /* Footer HOME */
+  .event-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    color: #ff8c42;
   }
