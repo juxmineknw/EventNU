@@ -1,37 +1,38 @@
 function showPopup() {
-    document.getElementById('searchPopup').style.display = 'flex';
+  document.getElementById('searchPopup').style.display = 'flex';
 }
 
 function hidePopup() {
-    document.getElementById('searchPopup').style.display = 'none';
+  document.getElementById('searchPopup').style.display = 'none';
 }
 // datepicker.js
-document.addEventListener("DOMContentLoaded", function () {
-    flatpickr("#birthday", {
-        dateFormat: "d/m/Y",  // รูปแบบวันที่ DD/MM/YYYY
-        allowInput: false,     // ปิดการพิมพ์วันที่เอง
-        clickOpens: true,      // คลิกที่ช่อง input เพื่อเปิดปฏิทิน
-        theme: "material_blue",
-    });
+document.addEventListener("DOMContentLoaded", function() {
+  flatpickr("#birthday", {
+    dateFormat: "d/m/Y",  // รูปแบบวันที่ DD/MM/YYYY
+    allowInput: false,     // ปิดการพิมพ์วันที่เอง
+    clickOpens: true,      // คลิกที่ช่อง input เพื่อเปิดปฏิทิน
+    theme: "material_blue",
+  });
 });
+
 function cancelOrder(button) {
-    // แสดงข้อความแจ้งเตือน
-    alert('Cancelled successfully.');
+  // แสดงข้อความแจ้งเตือน
+  alert('Cancelled successfully.');
 
-    // ลบ parent div ของปุ่มที่กด
-    const ticketCard = button.closest('.ticket-card');
-    if (ticketCard) {
-        ticketCard.remove();
-    }
+  // ลบ parent div ของปุ่มที่กด
+  const ticketCard = button.closest('.ticket-card');
+  if (ticketCard) {
+      ticketCard.remove();
+  }
 
-    // ตรวจสอบว่ามี ticket-card เหลืออยู่หรือไม่
-    const remainingTickets = document.querySelectorAll('.ticket-card');
-    const emptyState = document.querySelector('.empty-state');
+  // ตรวจสอบว่ามี ticket-card เหลืออยู่หรือไม่
+  const remainingTickets = document.querySelectorAll('.ticket-card');
+  const emptyState = document.querySelector('.empty-state');
 
-    if (remainingTickets.length === 0) {
-        // ถ้าไม่มี ticket-card ให้แสดง empty state
-        emptyState.style.display = 'block';
-    }
+  if (remainingTickets.length === 0) {
+      // ถ้าไม่มี ticket-card ให้แสดง empty state
+      emptyState.style.display = 'block';
+  }
 }
 function goBack() {
     window.history.back(); // ฟังก์ชันสำหรับย้อนกลับไปยังหน้าก่อนหน้า
