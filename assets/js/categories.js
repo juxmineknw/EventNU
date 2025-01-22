@@ -38,7 +38,7 @@ const events = [
     image: "assets/imgs/newyearcsit.jpg",
     time: "10.00",
     date: "23 January 2025",
-    location: "โถงอาคารภาควิชาคณิตศาสตร์ - ภาควิชาวิทยาการคอมพิวเตอร์ฯ",
+    location: "โถงอาคารภาควิชาคณิตศาสตร์",
     details: "ตักบาตรข้าวสารอาหารแห้งแด่พระสงฆ์ จำนวน 9 รูป",
     ticketPrice: "Free",
     detailsPage: "activity.html",
@@ -49,8 +49,8 @@ const events = [
     image: "assets/imgs/newyearnu.jpg",
     time: "19:00",
     date: "6 January 2025",
-    location: "อาคารสำนักงานอธิการบดี มหาวิทยาลัยนเรศวร",
-    details: "ทำบุญตักบาตรข้าวสารอาหารแห้งถวายแด่พระภิกษุสงฆ์และสามเณร วันปีใหม่",
+    location: "อาคารสำนักงานอธิการบดี ",
+    details: "ทำบุญตักบาตรข้าวสารอาหารแห้งถวายแด่พระภิกษุสงฆ์และสามเณร",
     ticketPrice: "Free",
     detailsPage: "activity.html",
   },
@@ -188,6 +188,12 @@ function scrollEvents(direction) {
 function filterEventsByCategory(selectedCategory) {
   const eventContainer = document.querySelector(".event-card-container");
   eventContainer.innerHTML = ""; // ลบการ์ดกิจกรรมเก่าออก
+  events.forEach(event => {
+    if (!event.ticketPrice || event.ticketPrice.trim() === "") {
+      console.warn(`Missing ticketPrice for event: ${event.name}`);
+    }
+  });
+  
 
   let filteredEvents;
 
