@@ -42,15 +42,15 @@
 
 <body class="topay-page">
     <div class="topay-container">
-        <h2>QR Code พร้อมเพย์</h2>
+        <h2>QR Code PromptPay</h2>
         <div class="topay-layout-wrapper">
             <!-- ส่วนข้อมูลด้านซ้าย -->
             <div class="topay-left-section">
-                <label class="topay-label">จำนวนเงิน (บาท)</label>
-                <input type="number" id="amount" class="topay-input" placeholder="กรอกจำนวนเงิน" min="1" required>
-                <button class="topay-btn" onclick="generatePromptPayQR()">สร้าง QR Code</button>
+                <label class="topay-label">Number of Tickets (Ticket)</label>
+                <input type="number" id="amount" class="topay-input" placeholder="Enter the amount" min="1" required>
+                <button class="topay-btn" onclick="generatePromptPayQR()">Crate QR Code</button>
                 <div class="topay-info">
-                    <p><strong>Account : </strong> นางสาวกนกวรรณ บุญโย </p>
+                    <p><strong>Account : </strong> Kanokwan Boonyo </p>
                     <p><strong>PromptPay : </strong> 0985499270 </p>
                 </div>
                 <canvas id="qrcode" class="topay-canvas"></canvas>
@@ -60,17 +60,17 @@
             <!-- ส่วน QR Code และข้อมูลด้านขวา -->
             <div class="topay-right-section">
                 <div>
-                    <label for="slipImageUpload" class="topay-label">อัปโหลดรูปสลิปเงิน</label>
+                    <label for="slipImageUpload" class="topay-label">Upload A Photo of Your Pay Slip</label>
                     <input type="file" id="slipImageUpload" class="topay-input" accept="image/*"
                         onchange="previewSlipImage(event)">
                 </div>
                 <div id="slipImagePreview">
-                    <p>ตัวอย่างสลิปเงิน:</p>
+                    <p>Example of Money slip :</p>
                     <img id="slipImage" src="" alt="Slip Image Preview" style="display: none;">
                 </div>
                 <button id="confirmActivityBtn" class="topay-btn"
-                    onclick="confirmActivity()">ยืนยันการเข้าร่วมกิจกรรม</button>
-                    <a href="pending.html" class="topay-btn back-btn">ย้อนกลับ</a>
+                    onclick="confirmActivity()">Confirm Participation in The Activity</button>
+                    <a href="pending.html" class="topay-btn back-btn">Go Back</a>
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
             const amount = document.getElementById("amount").value;
 
             if (!amount || amount <= 0) {
-                alert("กรุณากรอกจำนวนเงินที่ถูกต้อง");
+                alert("Please Enter The Correct Amount.");
                 return;
             }
 
@@ -97,14 +97,14 @@
             QRCode.toCanvas(canvas, qrData, { width: 300 }, function (error) {
                 if (error) {
                     console.error(error);
-                    alert("เกิดข้อผิดพลาดในการสร้าง QR Code");
+                    alert("An Error Occurred While Generating The QR Code.");
                 } else {
-                    console.log("QR Code generated successfully.");
+                    console.log("QR Code Generated Successfully.");
                 }
             });
 
             // แสดงราคาที่ด้านล่าง
-            document.getElementById("price").innerHTML = "จำนวนเงิน: " + amountFixed + " บาท";
+            document.getElementById("price").innerHTML = "Amount of Money : " + amountFixed + " บาท";
         }
 
         function createPromptPayData(id, amount) {

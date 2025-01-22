@@ -13,8 +13,8 @@
 */
 
 // smooth scroll
-$(document).ready(function(){
-    $(".navbar .nav-link").on('click', function(event) {
+$(document).ready(function () {
+    $(".navbar .nav-link").on('click', function (event) {
 
         if (this.hash !== "") {
 
@@ -24,15 +24,15 @@ $(document).ready(function(){
 
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 700, function(){
+            }, 700, function () {
                 window.location.hash = hash;
             });
-        } 
+        }
     });
 });
 
 // navbar toggle
-$('#nav-toggle').click(function(){
+$('#nav-toggle').click(function () {
     $(this).toggleClass('is-active')
     $('ul.nav').toggleClass('show');
 });
@@ -76,3 +76,33 @@ document.addEventListener("DOMContentLoaded", function () {
     // ซ่อนส่วน Privacy โดยดีฟอลต์
     privacySection.style.display = "none";
 });
+
+
+function shareEvent() {
+    alert('Share event clicked!');
+    const link = "";
+    
+}
+
+function copyLink() {
+    const link = "https://juxmineknw.github.io/EventNU/";
+    navigator.clipboard.writeText(link).then(() => {
+        alert('Link copied to clipboard!');
+    }).catch(err => {
+        alert('Failed to copy link: ' + err);
+    });
+}
+
+function toggleFavorite() {
+    const starIcon = document.getElementById('star-icon');
+    if (starIcon.classList.contains('fas')) {
+        starIcon.classList.remove('fas');
+        starIcon.classList.add('far'); // เปลี่ยนเป็นดาวกลวง
+        alert('Removed from favorites!');
+    } else {
+        starIcon.classList.remove('far');
+        starIcon.classList.add('fas'); // เปลี่ยนเป็นดาวเต็ม
+        alert('Added to favorites!');
+    }
+}
+

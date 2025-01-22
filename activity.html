@@ -18,162 +18,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <!-- Material icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <style>
-        /* กำหนดกรอบและการจัดวาง */
-        .activity-container {}
 
-        .top-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin: 20px auto;
-            max-width: 100%;
-            height: 50%;
-            margin-top: 100px;
-            background-color: antiquewhite;
-        }
-
-        .top-box {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            padding: 20px 20px 20px 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 50%;
-            height: auto;
-            margin: 50px auto;
-            border-radius: 15px;
-        }
-
-        .top {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .top-left {
-            flex: 1;
-            width: 100%;
-            height: 400px;
-        }
-
-        .top-left img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .top-right {
-            flex: 2;
-            color: #333;
-            font-size: 16px;
-            padding-bottom: 100px;
-        }
-
-        .top-right h3 {
-            margin: 0;
-            padding: 0;
-            font-size: 1.8rem;
-            text-align: left;
-            color: #333;
-            line-height: 1.2;
-        }
-
-        .top-icons {
-            display: flex;
-            justify-content: flex-start;
-            gap: 10px;
-            padding-left: 20px;
-            padding-top: 25px;
-        }
-
-        .top-info {
-            display: flex;
-            align-items: start;
-            gap: 10px;
-            margin-top: 10px;
-            padding-top: 30px;
-            padding-left: 10px;
-            font-size: 1rem;
-            flex-direction: column;
-        }
-
-        .mapping {
-            text-align: start;
-            margin-left: 40px;
-            margin-top: 10px;
-        }
-
-        .mapping p {
-            font-size: 0.9rem;
-        }
-
-        .map-link {
-            font-size: 0.9rem;
-            font-weight: bold;
-            text-decoration: underline;
-            padding: 4px;
-            background-color: #fff;
-            transition: background-color 0.3s ease;
-        }
-
-        .map-link:hover {
-            color: #EB8826;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .info-item span {
-            font-size: 1rem;
-            display: flex;
-        }
-
-        .info-item span strong {
-            font-size: 1rem;
-            color: #EB8826;
-        }
-
-        .icon-circle {
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            background-color: #ddd;
-            color: #000;
-        }
-
-
-        .bottom-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            margin-top: 100px;
-        }
-
-        .bottom-left,
-        .bottom-right {
-            flex: 1;
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
-    </style>
+        
 </head>
 
 <body>
 
     <!-- Page Navbar -->
-    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20" style="background-color: #fff;">
         <div class="container">
             <a class="logo" style="color: #EB8826;" href="home.html">EventNU</a>
             <ul class="nav">
@@ -203,55 +55,58 @@
             <div class="top-box">
                 <div class="top">
                     <div class="top-left">
-                        <img src="assets/imgs/พุ่งใต้เฟส.webp" alt="Event Left Image">
+                        <img src="assets/imgs/openhouse.jpg" alt="Event Left Image">
                     </div>
                     <div class="top-right">
                         <h3>Event in NU Presents Open House 2025</h3>
                         <div class="top-icons">
-                            <i class="fas fa-share-alt"></i>
-                            <i class="fas fa-link"></i>
-                            <i class="fas fa-star" id="star-icon"></i>
-                        </div>
+                            <i class="fas fa-share-alt" onclick="shareEvent()"></i>
+                            <i class="fas fa-link" onclick="copyLink()"></i>
+                            <i class="far fa-star" id="star-icon" onclick="toggleFavorite()"></i>
+                        </div>                        
                         <div class="top-info">
                             <div class="info-item">
                                 <div class="icon-circle">
                                     <i class="fas fa-ticket-alt"></i>
                                 </div>
-                                <span><strong>Public Sale Date :</strong> 20 ธันวาคม 2024</span>
+                                <span><strong>Public Sale Date  :</strong> 20 ธันวาคม 2024</span>
                             </div>
                             <div class="info-item">
                                 <div class="icon-circle">
                                     <i class="fas fa-calendar-alt"></i>
                                 </div>
-                                <span><strong>Event Date :</strong> 20 ธันวาคม 2024</span>
+                                <span><strong>Event Date  :</strong> 20 ธันวาคม 2024</span>
                             </div>
                             <div class="info-item">
                                 <div class="icon-circle">
                                     <i class="fas fa-clock"></i>
                                 </div>
-                                <span><strong>Event Time :</strong> 20 ธันวาคม 2024</span>
+                                <span><strong>Event Time  :</strong> 20 ธันวาคม 2024</span>
                             </div>
                             <div class="info-item">
                                 <div class="icon-circle">
                                     <i class="fas fa-ticket"></i>
                                 </div>
-                                <span><strong>Prices :</strong> 20 ธันวาคม 2024</span>
+                                <span><strong>Prices  :</strong> 20 ธันวาคม 2024</span>
                             </div>
                             <div class="info-item">
                                 <div class="icon-circle">
                                     <i class="fas fa-location-dot"></i>
                                 </div>
                                 <div>
-                                    <span><strong style="color: gray;">Naresuan University ( Science Faculty
-                                            )</strong></span>
+                                    <span><strong style="color: gray;">Naresuan University ( Science
+                                            Faculty)</strong></span>
                                 </div>
                             </div>
                             <div class="mapping">
-                                <p>Province : Phisanulok District : Muang</p>
+                                <p style="color: gray;">Province  : Phitsanulok District : Muang</p>
                                 <a href="https://www.google.com/maps/place/%E0%B8%84%E0%B8%93%E0%B8%B0%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C+%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%A8%E0%B8%A7%E0%B8%A3/@16.7414829,100.1925706,17.67z/data=!4m15!1m8!3m7!1s0x30df97e77e746631:0x371aaafbdf6cd038!2z4LmA4LiX4Lio4Lia4Liy4Lil4LiZ4LiE4Lij4Lie4Li04Lip4LiT4Li44LmC4Lil4LiBIOC4leC4s-C4muC4pSDguYPguJnguYDguKHguLfguK3guIcg4Lit4Liz4LmA4Lig4Lit4LmA4Lih4Li34Lit4LiH4Lie4Li04Lip4LiT4Li44LmC4Lil4LiBIOC4nuC4tOC4qeC4k-C4uOC5guC4peC4gSA2NTAwMA!3b1!8m2!3d16.8211238!4d100.2658516!16s%2Fm%2F047gmkf!3m5!1s0x30dfbe981f069d3b:0xa80eb30c21ba8200!8m2!3d16.7419936!4d100.1941464!16s%2Fg%2F122r_k0b?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D"
                                     target="_blank" class="map-link">
                                     Open Map
                                 </a>
+                            </div>
+                            <div class="top-right-btn-comingsoon">
+                                <h3>Coming Soon</h3>
                             </div>
                         </div>
                     </div>
@@ -261,12 +116,48 @@
 
         <div class="bottom-container">
             <div class="bottom-left">
-                <p>เนื้อหาด้านซ้าย เช่น รายละเอียดเพิ่มเติม</p>
+                <div class="bottom-left-about">
+                    <a href="javascript:history.back()" class="back-link">
+                        < Back</a>
+                            <p>About of Event</p>
+                            <div class="underline"></div>
+                            <div class="moodeng">
+                                <p>Categories : <span class="highlight">Education</span></p>
+                            </div>
+                            <div class="name-event">
+                                <h3>Event in Naresuan University Presents "Open House"</h3>
+                                <p>Open House Faculty of Science</p>
+                                <h6>รับชมได้ <span class="highlight">วันที่ 26 มกราคม 2568</span> นี้</h6>
+                                <div class="textevent">เตรียมตัวพบกับกิจกรรมที่น่าสนใจจาก 5 ภาควิชา
+                                    - กิจกรรมรอบที่ 1 : 09.00-10.00 น.
+                                    - กิจกรรมรอบที่ 2 : 10.30-11.30 น.
+                                    ผู้เข้าร่วมจะได้รับเกียรติบัตรจากงาน Open House สามารถนำไปใช้
+                                    ในการสมัคร TCAS 69
+                                    รอบ 1 Portfolioของคณะวิทยาศาสตร์ มหาวิทยาลับนเรศวร
+                                    (รับตรงงานสัปดาห์วิทยาศาสตร์)</div>
+                            </div>
+                </div>
             </div>
             <div class="bottom-right">
-                <p>เนื้อหาด้านขวา เช่น คำบรรยายหรือข้อมูลอื่น</p>
+                <p>Select Event Date :</p>
+                <div class="bottom-mapping">
+                    <i class="fas fa-location-dot"></i>
+                    <p>Province : Phitsanulok District : Muang</p>
+                    <a href="https://www.google.com/maps/place/..." target="_blank" class="bottommap-link">
+                        <!-- ลิงค์ Google Maps -->
+                    </a>
+                </div>
+                <div class="bottom-box">
+                    <div class="bottom-box-left"><span class="datehighlight">26</span>
+                        ม.ค. 2568
+                        อาทิตย์ 09:00</div>
+                    <div class="bottom-box-right">
+                        Open House <br>Faculty of Science</div>
+                </div>
+                <button id="registerevent" class="bottom-register-btn" onclick="window.location.href='register.html';">Register</button>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -280,7 +171,7 @@
     <!-- Meyawo js -->
     <script src="assets/js/meyawo.js"></script>
     <!-- event date -->
-    <script src="assets/js/ืdate.js"></script>
+    <script src="assets/js/date.js"></script>
     <!-- select faclty -->
     <script src="assets/js/faculty.js"></script>
     <!-- star -->

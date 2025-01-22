@@ -5,7 +5,7 @@ const categories = [
   { name: "Concert", icon: "fas fa-music" },
   { name: "Market", icon: "fas fa-shopping-basket" },
   { name: "Sports", icon: "fas fa-futbol" },
-  { name: "Study", icon: "fas fa-book"}
+  { name: "Education", icon: "fas fa-book"}
 ];
 
 // ข้อมูลกิจกรรม
@@ -17,8 +17,9 @@ const events = [
     time: "17.00",
     date: "20 January 2025",
     location: "ลาน NU Playground",
-    details: "โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong เพราะๆ ของกินอร่อยๆ อุ่นท้อง อิ่มใจ กับร้านค้า ร้านอาหารกว่า 80 ร้านค้า",
+    details: "โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong ร้านอาหารกว่า 80 ร้านค้า",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
   {
     name: "NU Identity Festival X Freshmen Night 2024",
@@ -29,6 +30,7 @@ const events = [
     location: "KNECC",
     details: "แสดงแสงสีเสียงพระราชประวัติฯ และเต้นประกอบเพลง",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
   {
     name: "พิธีทำบุญช่วงเทศกาลปีใหม่ ประจำปี 2568",
@@ -39,6 +41,7 @@ const events = [
     location: "โถงอาคารภาควิชาคณิตศาสตร์ - ภาควิชาวิทยาการคอมพิวเตอร์ฯ",
     details: "ตักบาตรข้าวสารอาหารแห้งแด่พระสงฆ์ จำนวน 9 รูป",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
   {
     name: "จัดพิธีทำบุญตักบาตรวันขึ้นปีใหม่ 2568",
@@ -49,6 +52,7 @@ const events = [
     location: "อาคารสำนักงานอธิการบดี มหาวิทยาลัยนเรศวร",
     details: "ทำบุญตักบาตรข้าวสารอาหารแห้งถวายแด่พระภิกษุสงฆ์และสามเณร วันปีใหม่",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
   {
     name: "โครงการมหกรรมศึกษาศาสตร์ EDU Festival 2025",
@@ -57,8 +61,9 @@ const events = [
     time: "19:00",
     date: "17 January 2025",
     location: "บริเวณลานจอดรถคณะศึกษาศาสตร์",
-    details: "EDU Festival 2025 ตอน มนต์รักศึกษาศาสตร์ งานมหกรรมสุดยิ่งใหญ่ใจกลางคณะศึกษาศาสตร์",
+    details: "EDU Festival 2025 ตอน  งานมหกรรมสุดยิ่งใหญ่ใจกลางคณะศึกษาศาสตร์",
     ticketPrice: "free",
+    detailsPage: "activity.html",
   },
   {
     name: "The First Stage Talent",
@@ -67,8 +72,9 @@ const events = [
     time: "17.00",
     date: "20 January 2025",
     location: "ลาน NU Playground",
-    details: "โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong เพราะๆ ของกินอร่อยๆ อุ่นท้อง อิ่มใจ กับร้านค้า ร้านอาหารกว่า 80 ร้านค้า",
+    details: "โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong ร้านอาหารกว่า 80 ร้านค้า",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
   {
     name: "ศิลป์เสมอคร้้งที่ 5",
@@ -79,6 +85,7 @@ const events = [
     location: "ศิลป์ศาลา มหาวิทยาลัยนเรศวร",
     details: "เชิญร่วมสนุกรับชมศิลปะ ดนตรีและสินค้าทำมือโดยนิสิตสาขาทัศนศิลป์ ",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
   {
     name: "The First Stage Talent",
@@ -87,8 +94,9 @@ const events = [
     time: "17.00",
     date: "20 January 2025",
     location: "ลาน NU Playground",
-    details: "โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong เพราะๆ ของกินอร่อยๆ อุ่นท้อง อิ่มใจ กับร้านค้า ร้านอาหารกว่า 80 ร้านค้า",
+    details: "โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong เพราะๆ ร้านอาหารกว่า 80 ร้านค้า",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
   {
     name: "SMST MEDRathon l วิ่งกับหมอ ครั้งที่ 4",
@@ -99,6 +107,7 @@ const events = [
     location: "อ.เมือง จ.พิษณุโลก",
     details: "โครงการวิ่งกับหมอ ครั้งที่ 4 โดยสหพันธ์นิสิตนักศึกษาแพทย์แห่งประเทศไทย ”",
     ticketPrice: "550 Baht",
+    detailsPage: "activity.html",
   },
   {
     name: "Sci-tech 2024",
@@ -109,26 +118,29 @@ const events = [
     location: "มหาวิทยาลัยนเรศวร",
     details: "โครงการกีฬาเชื่อมความสัมพันธ์กลุ่มคณะวิทยาศาสตร์ และเทคโนโลยี 2567",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
   {
     name: "Open House Faculty of Science Naresuan University",
-    category: "Study",
+    category: "Education",
     image: "assets/imgs/sci-open.jpg",
     time: "9.00",
     date: "26 January 2025",
     location: "มหาวิทยาลัยนเรศวร",
     details: "ผู้เข้าร่วมกิจกรรมจะได้ความรู้เกี่ยวกับคณะวิทยาศาสตร์ในแต่ละสาขา",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
   {
     name: "NU-Logistics Open House 2025",
-    category: "Study",
+    category: "Education",
     image: "assets/imgs/logis-open.jpg",
     time: "9.00",
     date: "26 January 2025",
     location: "มหาวิทยาลัยนเรศวร",
     details: "ได้ความรู้เกี่ยวกับการเรียนการสอนในสาขาวิชาโลจิสติกส์",
     ticketPrice: "Free",
+    detailsPage: "activity.html",
   },
 
 ];
@@ -191,22 +203,22 @@ function filterEventsByCategory(selectedCategory) {
     const eventCard = document.createElement("div");
     eventCard.classList.add("event-card");
     eventCard.innerHTML = `
-        <div class="event-card-image" style="background-image: url('${event.image}');"></div>
-        <div class="event-card-content">
-          <h3>${event.name}</h3>
-          <p><i class="fas fa-clock"></i> ${event.time}</p>
-          <p><i class="fas fa-calendar-alt"></i> ${event.date}</p>
-          <p><i class="fas fa-map-marker-alt"></i> ${event.location}</p>
-          <p class="event-location-details">${event.details}</p>
-          <div class="event-card-footer">
-            <span><i class="fas fa-ticket-alt"></i> ${event.ticketPrice}</span>
-            <button class="event-detail-btn">Detail</button>
-            <div class="event-star-button" onclick="toggleStar(this)">
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
+    <div class="event-card-image" style="background-image: url('${event.image}');"></div>
+    <div class="event-card-content">
+      <h3>${event.name}</h3>
+      <p><i class="fas fa-clock"></i> ${event.time}</p>
+      <p><i class="fas fa-calendar-alt"></i> ${event.date}</p>
+      <p><i class="fas fa-map-marker-alt"></i> ${event.location}</p>
+      <p class="event-location-details">${event.details}</p>
+      <div class="event-card-footer">
+        <span><i class="fas fa-ticket-alt"></i> ${event.ticketPrice}</span>
+        <a href="${event.detailsPage}" class="event-detail-btn">Detail</a>
+        <div class="event-star-button" onclick="toggleStar(this)">
+          <i class="fas fa-star"></i>
         </div>
-      `;
+      </div>
+    </div>
+`;
     eventContainer.appendChild(eventCard);
   });
 

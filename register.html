@@ -18,7 +18,7 @@
     <div class="register-container">
         <!-- Form Section -->
         <div class="register-form">
-            <h2 class="register-heading">Event Registration</h2>
+            <h2 class="register-heading" style="margin-left: 35px;">Event Registration</h2>
 
             <form action="submit_registration.php" method="POST" class="register-form">
                 <!-- Full Name -->
@@ -34,13 +34,13 @@
                 <!-- Email -->
                 <div class="mb-3">
                     <label for="email" class="form-label register-label">Email</label>
-                    <input type="email" class="form-control register-input" id="email" name="email" required>
+                    <input type="email" class="form-control register-input" id="email" name="email" placeholder="Enter your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" required>
                 </div>
 
                 <!-- Phone Number -->
                 <div class="mb-3">
                     <label for="phone" class="form-label register-label">Phone Number</label>
-                    <input type="tel" class="form-control register-input" id="phone" name="phone" required>
+                    <input type="tel" class="form-control register-input" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000" title="Please enter a 10-digit phone number" maxlength="10" required>
                 </div>
 
                 <!-- Submit Button -->
