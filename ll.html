@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Map</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js"></script>
+    <style>
+        #map {
+            margin: 20px auto;
+            height: 500px;
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Event Map</h1>
+<div id="map"></div>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3VyaXlhNjM2IiwiYSI6ImNtNjY5cGdoajF2eW0ya29oZzdkOGxianUifQ.3iwzBRxARwIFfIMRiF827Q';
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventId = urlParams.get('event'); // Get event ID from URL
+
+    const events = [
+        {
+            id: "event1",
+            name: "The First Stage Talent",
+            coordinates: [100.1950, 16.7420] // Example coordinates
+        },
+        {
+            id: "event2",
+            name: "Food Festival",
+            coordinates: [100.1920, 16.7450] // Example coordinates
+        }
+    ];
+
+    const selectedEvent = events.find(event => event.id === eventId);
+
+    if (selectedEvent) {
+        // Initialize map centered at the event's coordinates
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12', // Map style
+            center: selectedEvent.coordinates, // Center map on selected event coordinates
+            zoom: 16 // Zoom level
+        });
+
+        // Add a marker to the map at the event's coordinates
+        new mapboxgl.Marker()
+            .setLngLat(selectedEvent.coordinates)
+            .addTo(map)
+            .setPopup(new mapboxgl.Popup({ offset: 25 })
+            .setHTML(`<strong>${selectedEvent.name}</strong>`)); // Set popup text
+    } else {
+        console.error('Event not found');
+        alert('Event not found');
+    }
+</script>
+
+
+</body>
+</html>

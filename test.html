@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Maps</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js"></script>
+    <style>
+        /* Your existing CSS */
+    </style>
+</head>
+<body>
+
+<h1>Event Maps</h1>
+<div id="event-list"></div>
+<div id="event-details"></div>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3VyaXlhNjM2IiwiYSI6ImNtNjY5cGdoajF2eW0ya29oZzdkOGxianUifQ.3iwzBRxARwIFfIMRiF827Q';
+
+    const events = [
+        {
+            name: "The First Stage Talent",
+            category: "Theater", image: "assets/imgs/pp.jpg",    
+            time: "17.00",
+            date: "20 January 2025",
+            location: "ลาน NU Playground",
+            details: "โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong ร้านอาหารกว่า 80 ร้านค้า",
+            ticketPrice: "Free",
+            coordinates: [100.1950, 16.7420],
+            id: "event1"
+        },
+        {
+            name: "Food Festival",
+            category: "Festival",
+            image: "assets/imgs/openhouse.jpg",
+            time: "12.00",
+            date: "25 January 2025",
+            location: "สนามกีฬา NU",
+            details: "อาหารหลากหลายสไตล์จากกว่า 50 ร้านค้า",
+            ticketPrice: "Free",
+            coordinates: [100.1920, 16.7450],
+            id: "event2"
+        }
+    ];
+
+    const eventList = document.getElementById('event-list');
+    const eventDetails = document.getElementById('event-details');
+
+    function showEventDetails(event) {
+    eventList.style.display = 'none';
+    eventDetails.style.display = 'block';
+    eventDetails.innerHTML = `
+        <h3>${event.name}</h3>
+        <img src="${event.image}" alt="${event.name}">
+        <p><strong>Time:</strong> ${event.time}</p>
+        <p><strong>Date:</strong> ${event.date}</p>
+        <p><strong>Location:</strong> ${event.location}</p>
+        <p>${event.details}</p>
+        <!-- เพิ่มปุ่มเพื่อส่งข้อมูลไปยัง layout.html โดยอัตโนมัติจากชื่อกิจกรรม -->
+        <button onclick="window.location.href='ll.html?event=${event.id}'">View on Map</button>
+    `;
+}
+
+
+    function goBack() {
+        eventDetails.style.display = 'none';
+        eventList.style.display = 'block';
+    }
+
+    function loadEventList() {
+        events.forEach(event => {
+            const card = document.createElement('div');
+            card.className = 'event-card';
+            card.innerHTML = `
+                <img src="${event.image}" alt="${event.name}">
+                <h3>${event.name}</h3>
+                <p><strong>Time:</strong> ${event.time}</p>
+                <p><strong>Date:</strong> ${event.date}</p>
+                <p><strong>Location:</strong> ${event.location}</p>
+            `;
+            card.addEventListener('click', () => showEventDetails(event));
+            eventList.appendChild(card);
+        });
+    }
+
+    loadEventList();
+</script>
+
+</body>
+</html>
