@@ -1,82 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with Meyawo landing page.">
-    <meta name="author" content="Devcrud">
-    <title>EventNU</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <!-- meyao -->
-    <link rel="stylesheet" href="assets/css/meyawo.css">
-    <!-- font-awesome icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Bootstrap icons-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <!-- Material icons-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Maps</title>
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js"></script>
-
+    <style>
+        /* Your existing CSS */
+    </style>
 </head>
+<body>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<h1>Event Maps</h1>
+<div id="event-list"></div>
+<div id="event-details"></div>
 
-    <!-- Page Navbar -->
-    <nav class="custom-navbar" data-spy="affix" data-offset-top="20" style="background-color: #fff;">
-        <div class="container">
-            <a class="logo" style="color: #EB8826;" href="home.html">EventNU</a>
-            <ul class="nav">
-                <li class="item">
-                    <a class="link" style="color: gray;" href="home.html">Home</a>
-                </li>
-                <li class="item">
-                    <a class="link" style="color: gray;" href="favorite.html">Favorite</a>
-                </li>
-                <li class="item">
-                    <a class="link" style="color: gray;" href="layout.html">Layout</a>
-                </li>
-                <li class="item ml-md-3">
-                    <a href="setting.html" class="btn btn-primary">Setting</a>
-                </li>
-            </ul>
-            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
-                </div>
-            </a>
-        </div>
-    </nav><!-- End of Page Navbar -->
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3VyaXlhNjM2IiwiYSI6ImNtNjY5cGdoajF2eW0ya29oZzdkOGxianUifQ.3iwzBRxARwIFfIMRiF827Q';
+
+    const events = [
+        {
+            name: "The First Stage Talent",
+            category: "Theater", image: "assets/imgs/pp.jpg",    
+            time: "17.00",
+            date: "20 January 2025",
+            location: "ลาน NU Playground",
+            details: "โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong ร้านอาหารกว่า 80 ร้านค้า",
+            ticketPrice: "Free",
+            coordinates: [100.1950, 16.7420],
+            id: "event1"
+        },
+        {
+            name: "Food Festival",
+            category: "Festival",
+            image: "assets/imgs/openhouse.jpg",
+            time: "12.00",
+            date: "25 January 2025",
+            location: "สนามกีฬา NU",
+            details: "อาหารหลากหลายสไตล์จากกว่า 50 ร้านค้า",
+            ticketPrice: "Free",
+            coordinates: [100.1920, 16.7450],
+            id: "event2"
+        }
+    ];
+
+    const eventList = document.getElementById('event-list');
+    const eventDetails = document.getElementById('event-details');
+
+    function showEventDetails(event) {
+    eventList.style.display = 'none';
+    eventDetails.style.display = 'block';
+    eventDetails.innerHTML = `
+        <h3>${event.name}</h3>
+        <img src="${event.image}" alt="${event.name}">
+        <p><strong>Time:</strong> ${event.time}</p>
+        <p><strong>Date:</strong> ${event.date}</p>
+        <p><strong>Location:</strong> ${event.location}</p>
+        <p>${event.details}</p>
+        <!-- เพิ่มปุ่มเพื่อส่งข้อมูลไปยัง layout.html โดยอัตโนมัติจากชื่อกิจกรรม -->
+        <button onclick="window.location.href='ll.html?event=${event.id}'">View on Map</button>
+    `;
+}
 
 
-    <!-- Layout Section -->
-    <section class="map-section" style="margin-top: 150px;">
-        <div id="map"></div>
-    </section>
+    function goBack() {
+        eventDetails.style.display = 'none';
+        eventList.style.display = 'block';
+    }
 
+    function loadEventList() {
+        events.forEach(event => {
+            const card = document.createElement('div');
+            card.className = 'event-card';
+            card.innerHTML = `
+                <img src="${event.image}" alt="${event.name}">
+                <h3>${event.name}</h3>
+                <p><strong>Time:</strong> ${event.time}</p>
+                <p><strong>Date:</strong> ${event.date}</p>
+                <p><strong>Location:</strong> ${event.location}</p>
+            `;
+            card.addEventListener('click', () => showEventDetails(event));
+            eventList.appendChild(card);
+        });
+    }
 
-    <!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-
-    <!-- bootstrap 3 affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
-
-    <!-- Meyawo js -->
-    <script src="assets/js/meyawo.js"></script>
-    <!-- event date -->
-    <script src="assets/js/ืdate.js"></script>
-    <!-- select faclty -->
-    <script src="assets/js/faculty.js"></script>
-    <!-- star -->
-    <script src="assets/js/star.js"></script>
-    <!-- map -->
-    <script src="assets/js/map.js"></script>
+    loadEventList();
+</script>
 
 </body>
-
 </html>
