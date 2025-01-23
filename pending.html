@@ -102,20 +102,20 @@
                             <span class="ticket-status-yellow">Pending Payment</span>
                         </div>
                         <div class="ticket-body">
-                            <img src="assets/imgs/bf.png" alt="Event Image" class="ticket-image">
+                            <img src="assets/imgs/ละครเวที.webp" alt="Event Image" class="ticket-image">
                             <div class="ticket-details">
-                                <h4>Book fair</h4>
-                                <p>14 Dec 2024 | 18:00</p>
+                                <h4>มนต์รักลูกทุ่ง ทองกวาว เดอะมิวสิคัล</h4>
+                                <p>23 Feb 2025 | 18:00</p>
                                 <p>
-                                    <i class="bi bi-ticket"></i> Ticket x 2
+                                    <i class="bi bi-ticket"></i> Ticket x 1
                                 </p>
-                                <p>Total : <strong>฿ 10.00</strong></p>
+                                <p>Total : <strong>฿ 99.00</strong></p>
                             </div>
                         </div>
                         <!-- Actions -->
                         <div class="ticket-actions">
                             <button class="ticket-btn ticket-btn-refund" onclick="cancelOrder(this)">Cancel Ticket</button>
-                            <a href="topay.html" class="ticket-btn ticket-btn-reorder">To Pay</a>
+                            <a href="topayevent.html" class="ticket-btn ticket-btn-reorder">To Pay</a>
                         </div>
                     </div>
                     <!-- Empty state -->
@@ -133,55 +133,61 @@
             <h3>Activities you might like</h3>
             <div class="event-grid">
                 <div class="event-card">
-                    <div class="event-picture-container">                  
-                        <img src="assets/imgs/chrismas.jpeg" alt="Event Image" class="event-picture">
+                    <div class="event-picture-container">
+                        <img src="assets/imgs/firststage.jpg" alt="Event Image" class="event-picture">
                     </div>
                     <div class="event-details">
-                        <p class="event-date">Date : <span class="event-date-red">12 Jan 2025</span></p>
-                        <p class="event-title">Event in NU Presents Christmas Celebration</p>
-                        <p class="event-location">
-                            <i class="fas fa-map-marker-alt"></i> Naresuan University
-                          </p>
-                        <button class="details-btnn" onclick="showDetails('event-1')">See Details</button>
+                        <p class="event-date">Date: <span class="event-date-red">20 January 2025</span></p>
+                        <p class="event-title">The First Stage Talent</p>
+                        <p class="event-description">โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong</p>
+                        <p class="event-location"><span class="icon pin"><i class="far fa-location-dot"></i></span> ลาน NU Playground</p>
+                        <button class="btn btn-outline-primary rounded-pill" onclick="goToDetail1()"
+                            style="margin-left: 50px;">Detail event</button>
                     </div>
                 </div>
+    
+                <!-- Event Card 2 -->
                 <div class="event-card">
                     <div class="event-picture-container">                  
-                        <img src="assets/imgs/chrismas.jpeg" alt="Event Image" class="event-picture">
+                        <img src="assets/imgs/identity.jpg" alt="Event Image" class="event-picture">
                     </div>
                     <div class="event-details">
-                        <p class="event-date">Date : <span class="event-date-red">12 Jan 2025</span></p>
-                        <p class="event-title">Event in NU Presents Christmas Celebration</p>
-                        <p class="event-location">
-                            <i class="fas fa-map-marker-alt"></i> Naresuan University
-                          </p>
-                        <button class="details-btnn" onclick="showDetails('event-1')">See Details</button>
+                        <p class="event-date">Date: <span class="event-date-red">20 February 2025</span></p>
+                        <p class="event-title">NU Identity Festival</p>
+                        <p class="event-description">แสดงแสงสีเสียงพระราชประวัติฯ และเต้นประกอบเพลง</p>
+                        <p class="event-location"><span class="icon pin"><i class="far fa-location-dot"></i></span> KNECC</p>
+                        <button class="btn btn-outline-primary rounded-pill" onclick="goToDetail2()"
+                            style="margin-left: 50px;">Detail event</button>
                     </div>
                 </div>
+    
+                <!-- Event Card 3 -->
                 <div class="event-card">
-                    <div class="event-picture-container">                  
-                        <img src="assets/imgs/chrismas.jpeg" alt="Event Image" class="event-picture">
+                    <div class="event-picture-container">
+                        <img src="assets/imgs/newyearcsit.jpg" alt="Event Image" class="event-picture">
                     </div>
                     <div class="event-details">
-                        <p class="event-date">Date : <span class="event-date-red">12 Jan 2025</span></p>
-                        <p class="event-title">Event in NU Presents Christmas Celebration</p>
-                        <p class="event-location">
-                            <i class="fas fa-map-marker-alt"></i> Naresuan University
-                          </p>
-                        <button class="details-btnn" onclick="showDetails('event-1')">See Details</button>
+                        <p class="event-date">Date: <span class="event-date-red">23 January 2025</span></p>
+                        <p class="event-title">พิธีทำบุญปีใหม่</p>
+                        <p class="event-description">ทำบุญตักบาตรข้าวสารอาหารแห้งถวายแด่พระภิกษุสงฆ์และสามเณร</p>
+                        <p class="event-location"><span class="icon pin"><i class="far fa-location-dot"></i></span> SC-2</p>
+                        <button class="btn btn-outline-primary rounded-pill" onclick="goToDetail3()"
+                            style="margin-left: 50px;">Detail event</button>
                     </div>
                 </div>
+    
+                <!-- Event Card 4 -->
                 <div class="event-card">
-                    <div class="event-picture-container">                  
-                        <img src="assets/imgs/chrismas.jpeg" alt="Event Image" class="event-picture">
+                    <div class="event-picture-container">
+                        <img src="assets/imgs/edufes.jpg" alt="Event Image" class="event-picture">
                     </div>
                     <div class="event-details">
-                        <p class="event-date">Date : <span class="event-date-red">12 Jan 2025</span></p>
-                        <p class="event-title">Event in NU Presents Christmas Celebration</p>
-                        <p class="event-location">
-                            <i class="fas fa-map-marker-alt"></i> Naresuan University
-                          </p>
-                        <button class="details-btnn" onclick="showDetails('event-1')">See Details</button>
+                        <p class="event-date">Date: <span class="event-date-red">17 January 2025</span></p>
+                        <p class="event-title">EDU Festival 2025</p>
+                        <p class="event-description">มนต์รักศึกษาศาสตร์ งานมหกรรมสุดยิ่งใหญ่ใจกลางคณะศึกษาศาสตร์</p>
+                        <p class="event-location"><span class="icon pin"><i class="far fa-location-dot"></i></span> ลานจอดรถคณะศึกษาศาสตร์</p>
+                        <button class="btn btn-outline-primary rounded-pill" onclick="goToDetail4()"
+                            style="margin-left: 50px;">Detail event</button>
                     </div>
                 </div>
             </div>

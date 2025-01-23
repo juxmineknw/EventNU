@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- meyao -->
+    <link rel="stylesheet" href="assets/css/meyawo.css">
+    <!-- font-awesome icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Material icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>QR Code PromptPay</title>
+    <style>
+        #slipImagePreview {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #slipImagePreview img {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border: 6px solid #9e4002;
+            border-radius: 30px;
+        }
+
+        #scanslip {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 20px;
+            margin-left: 120px;
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #scanslip img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        #confirmActivityBtn {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .topay-ticket-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .topay-control-btn {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 20px;
+            line-height: 40px;
+            padding: 0;
+        }
+
+        .topay-input {
+            width: 300px;
+            text-align: center;
+            font-size: 18px;
+            padding: 5px;
+        }
+
+        .topay-inputt {
+            width: 60px;
+            text-align: center;
+            font-size: 18px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body class="topay-page">
+    <div class="topay-container">
+        <h2>QR Code PromptPay</h2>
+        <div class="topay-layout-wrapper">
+            <div class="topay-left-section">
+                <label class="topay-label">Number of Tickets (Ticket)</label>
+                <div class="topay-ticket-controls">
+                    <button class="topay-btn" onclick="decreaseTicket()">-</button>
+                    <input type="number" id="amount" class="topay-inputt" value="1" min="1" max="5" readonly>
+                    <button class="topay-btn" onclick="increaseTicket()">+</button>
+                </div>
+                <button class="topay-btn" onclick="generatePromptPayQR()">Create QR Code</button>
+                <div class="topay-info">
+                    <p><strong>Account : </strong> Kanokwan Boonyo</p>
+                    <p><strong>PromptPay : </strong> 0985499270</p>
+                </div>
+                <div id="price" class="topay-price"></div>
+                <div id="slipImagePreview">
+                    <img id="slipImage" src="" alt="Slip Image Preview" style="display: none;">
+                </div>
+            </div>
+            <div class="topay-right-section">
+                <div>
+                    <label for="slipImageUpload" class="topay-label">Upload A Photo of Your Pay Slip</label><br>
+                    <input type="file" id="slipImageUpload" class="topay-input" accept="assets/imgs/*"
+                    onchange="previewSlipImage(event)">
+                </div>
+                <div id="scanslip">
+                    <img id="slipImage" src="" alt="Slip Image Preview" style="display: none;">
+                </div>
+                <button id="confirmActivityBtn" class="topay-btn" onclick="confirmActivity()">Confirm Participation in
+                    The Activity</button>
+                <a href="pending.html" class="topay-btn back-btn">Go Back</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ticketData = {
+            1: { price: 99, imageUrl: 'assets/imgs/99.png' },
+        };
+    
+        window.onload = function () {
+            updatePrice(); // อัปเดตจำนวนและราคาตั๋วเมื่อโหลดหน้า
+            generatePromptPayQR(); // สร้าง QR Code ทันที
+        };
+    
+        function increaseTicket() {
+            const input = document.getElementById("amount");
+            let currentValue = parseInt(input.value);
+    
+            if (currentValue < 5) {
+                input.value = currentValue + 1;
+                updatePrice();
+                generatePromptPayQR(); // อัปเดต QR Code ทันทีเมื่อเปลี่ยนจำนวน
+            } else {
+                alert("You can only buy up to 5 tickets.");
+            }
+        }
+    
+        function decreaseTicket() {
+            const input = document.getElementById("amount");
+            let currentValue = parseInt(input.value);
+    
+            if (currentValue > 1) {
+                input.value = currentValue - 1;
+                updatePrice();
+                generatePromptPayQR(); // อัปเดต QR Code ทันทีเมื่อเปลี่ยนจำนวน
+            } else {
+                alert("You must buy at least 1 ticket.");
+            }
+        }
+    
+        function updatePrice() {
+            const ticketCount = parseInt(document.getElementById("amount").value);
+            const ticketInfo = ticketData[ticketCount];
+    
+            if (ticketInfo) {
+                const ticketPrice = ticketInfo.price;
+    
+                document.getElementById("price").innerHTML =
+                    `Amount of Tickets: ${ticketCount} <br>Total Price: ${ticketPrice} บาท`;
+            } else {
+                alert("Invalid ticket count.");
+            }
+        }
+    
+        function generatePromptPayQR() {
+            const ticketCount = parseInt(document.getElementById("amount").value);
+            const ticketInfo = ticketData[ticketCount];
+    
+            if (ticketInfo) {
+                const totalAmountFixed = ticketInfo.price.toFixed(2);
+                const promptPayID = "0985499270";
+                const qrData = createPromptPayData(promptPayID, totalAmountFixed);
+    
+                // แสดง QR Code และอัปเดตรูปภาพ
+                document.getElementById("price").innerHTML =
+                    `Amount of Tickets: ${ticketCount} <br>Total Price: ${ticketInfo.price} บาท`;
+    
+                const slipImagePreview = document.getElementById("slipImagePreview");
+                slipImagePreview.innerHTML = `<img src="${ticketInfo.imageUrl}" alt="QR Code Image">`;
+            } else {
+                alert("Invalid ticket count.");
+            }
+        }
+    
+        function createPromptPayData(id, amount) {
+            const payload = [
+                "000201",
+                "010211",
+                "29370016A000000677010111",
+                `011300${id.length}${id}`,
+                `5408${amount.padStart(6, '0')}`,
+                "5802TH",
+                "6304"
+            ];
+            const data = payload.join("");
+            const crc = calculateCRC16(data + "6304");
+            return data + crc;
+        }
+    
+        function calculateCRC16(input) {
+            let crc = 0xFFFF;
+            for (let i = 0; i < input.length; i++) {
+                const byte = input.charCodeAt(i);
+                crc ^= byte << 8;
+    
+                for (let j = 0; j < 8; j++) {
+                    if (crc & 0x8000) {
+                        crc = (crc << 1) ^ 0x1021;
+                    } else {
+                        crc <<= 1;
+                    }
+                }
+            }
+            return (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, "0");
+        }
+        function previewSlipImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const slipImage = document.getElementById("slipImage");
+                slipImage.src = e.target.result;
+                slipImage.style.display = "block";
+
+                // Show in scanslip section as well
+                const scanslip = document.getElementById("scanslip");
+                scanslip.innerHTML = `<img src="${e.target.result}" alt="Uploaded Pay Slip" />`;
+
+                document.getElementById("confirmActivityBtn").style.display = "block";
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function confirmActivity() {
+            alert("ยืนยันการเข้าร่วมกิจกรรมสำเร็จ!");
+            window.location.href = "payment.html";
+        }
+    </script>
+    
+</body>
+
+</html>
