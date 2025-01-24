@@ -1,92 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Maps</title>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js"></script>
-    <style>
-        /* Your existing CSS */
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>EventNU</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- meyao -->
+    <link rel="stylesheet" href="assets/css/meyawo.css">
+    <!-- font-awesome icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Material icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </head>
-<body>
 
-<h1>Event Maps</h1>
-<div id="event-list"></div>
-<div id="event-details"></div>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
-<script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoic3VyaXlhNjM2IiwiYSI6ImNtNjY5cGdoajF2eW0ya29oZzdkOGxianUifQ.3iwzBRxARwIFfIMRiF827Q';
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" style="color: #EB8826;" href="home.html">EventNU</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" style="color: gray;" href="home.html">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="color: gray;" href="favorite.html">Favorite</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="color: gray;" href="layout.html">Layout</a>
+                </li>
+                <li class="item ml-md-3">
+                    <a href="setting.html" class="btn btn-primary">Setting</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
 
-    const events = [
-        {
-            name: "The First Stage Talent",
-            category: "Theater", image: "assets/imgs/pp.jpg",    
-            time: "17.00",
-            date: "20 January 2025",
-            location: "ลาน NU Playground",
-            details: "โชว์เล่นรูบิคสนุกๆ นั่งชิวๆ ฟังเพลง Folksong ร้านอาหารกว่า 80 ร้านค้า",
-            ticketPrice: "Free",
-            coordinates: [100.1950, 16.7420],
-            id: "event1"
-        },
-        {
-            name: "Food Festival",
-            category: "Festival",
-            image: "assets/imgs/openhouse.jpg",
-            time: "12.00",
-            date: "25 January 2025",
-            location: "สนามกีฬา NU",
-            details: "อาหารหลากหลายสไตล์จากกว่า 50 ร้านค้า",
-            ticketPrice: "Free",
-            coordinates: [100.1920, 16.7450],
-            id: "event2"
-        }
-    ];
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Start your development with Meyawo landing page.">
+        <meta name="author" content="Devcrud">
+        <section class="favorite-section" style="margin-top: 100px;">
+            <title>EventNU</title>
+            <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css" rel="stylesheet">
+            <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js"></script>
+            <style>
+                /* General Styles */
+                body {
+                    font-family: 'Arial', sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f5f5f5;
+                    color: #333;
+                }
 
-    const eventList = document.getElementById('event-list');
-    const eventDetails = document.getElementById('event-details');
+                h1 {
+                    text-align: center;
+                    font-size: 2.5rem;
+                    color: #EB8826;
+                    margin: 20px 0;
+                }
 
-    function showEventDetails(event) {
-    eventList.style.display = 'none';
-    eventDetails.style.display = 'block';
-    eventDetails.innerHTML = `
-        <h3>${event.name}</h3>
-        <img src="${event.image}" alt="${event.name}">
-        <p><strong>Time:</strong> ${event.time}</p>
-        <p><strong>Date:</strong> ${event.date}</p>
-        <p><strong>Location:</strong> ${event.location}</p>
-        <p>${event.details}</p>
-        <!-- เพิ่มปุ่มเพื่อส่งข้อมูลไปยัง layout.html โดยอัตโนมัติจากชื่อกิจกรรม -->
-        <button onclick="window.location.href='ll.html?event=${event.id}'">View on Map</button>
-    `;
-}
+                /* Event List Section */
+                #event-list,
+                #event-details {
+                    max-width: 900px;
+                    margin: 20px auto;
+                    padding: 20px;
+                    background: #ffffff;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
 
+                #event-list {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 15px;
+                }
 
-    function goBack() {
-        eventDetails.style.display = 'none';
-        eventList.style.display = 'block';
-    }
+                .event-card {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    padding: 15px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                    background: #ffffff;
+                    transition: transform 0.3s, box-shadow 0.3s;
+                    cursor: pointer;
+                }
 
-    function loadEventList() {
-        events.forEach(event => {
-            const card = document.createElement('div');
-            card.className = 'event-card';
-            card.innerHTML = `
-                <img src="${event.image}" alt="${event.name}">
+                .event-card:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+                }
+
+                .event-card img {
+                    width: 120px;
+                    height: 120px;
+                    object-fit: cover;
+                    border-radius: 8px;
+                    border: 1px solid #ddd;
+                }
+
+                .event-card h3 {
+                    margin: 0 0 8px;
+                    font-size: 1.5rem;
+                    color: #333;
+                }
+
+                .event-card p {
+                    margin: 4px 0;
+                    font-size: 0.9rem;
+                    color: #666;
+                }
+
+                /* Event Details Section */
+                #event-details {
+                    display: none;
+                }
+
+                #event-details img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 12px;
+                    margin-bottom: 20px;
+                }
+
+                #event-details h3 {
+                    font-size: 2rem;
+                    color: #333;
+                    margin-bottom: 10px;
+                }
+
+                #event-details p {
+                    font-size: 1rem;
+                    color: #555;
+                    margin: 5px 0;
+                }
+
+                #event-details button {
+                    padding: 10px 20px;
+                    margin: 10px 5px 0 0;
+                    background-color: #EB8826;
+                    color: #fff;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    transition: background-color 0.3s ease;
+                }
+
+                #event-details button:hover {
+                    background-color: #c96b20;
+                }
+
+                /* Responsive Styles */
+                @media (max-width: 768px) {
+                    .event-card {
+                        flex-direction: row;
+                        align-items: flex-start;
+                    }
+
+                    .event-card img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    #event-details button {
+                        width: 100%;
+                        margin: 10px 0;
+                    }
+                }
+            </style>
+    </head>
+
+    <body>
+
+        <h1>Event Layout</h1>
+        <div id="event-list"></div>
+        <div id="event-details"></div>
+
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1Ijoic3VyaXlhNjM2IiwiYSI6ImNtNjY5cGdoajF2eW0ya29oZzdkOGxianUifQ.3iwzBRxARwIFfIMRiF827Q';
+
+            const events = [
+                {
+                    name: "จัดพิธีทำบุญตักบาตรวันขึ้นปีใหม่ 2568",
+                    category: "Charity",
+                    image: "assets/imgs/newyearnu.jpg",
+                    time: "19:00",
+                    date: "6 January 2025",
+                    location: "อาคารสำนักงานอธิการบดี ",
+                    details: "ทำบุญตักบาตรข้าวสารอาหารแห้งถวายแด่พระภิกษุสงฆ์และสามเณร",
+                    ticketPrice: "Free",
+                    coordinates: [100.1950, 16.7420],
+                    id: "event1"
+                },
+                {
+                    name: "Open House Faculty of Science Naresuan University",
+                    category: "Education",
+                    image: "assets/imgs/sci-open.jpg",
+                    time: "9.00",
+                    date: "26 January 2025",
+                    location: "มหาวิทยาลัยนเรศวร",
+                    details: "ผู้เข้าร่วมกิจกรรมจะได้ความรู้เกี่ยวกับคณะวิทยาศาสตร์ในแต่ละสาขา",
+                    ticketPrice: "Free",
+                    coordinates: [100.1920, 16.7450],
+                    id: "event2"
+                },
+                {
+                    name: "พิธีทำบุญช่วงเทศกาลปีใหม่ ประจำปี 2568",
+                    category: "Charity",
+                    image: "assets/imgs/newyearcsit.jpg",
+                    time: "10.00",
+                    date: "23 January 2025",
+                    location: "โถงอาคารภาควิชาคณิตศาสตร์",
+                    details: "ตักบาตรข้าวสารอาหารแห้งแด่พระสงฆ์ จำนวน 9 รูป",
+                    ticketPrice: "Free",
+                    coordinates: [100.1920, 16.7450],
+                    id: "event2"
+                },
+                {
+                    name: "NU Identity Festival X Freshmen Night 2024",
+                    category: "Theater",
+                    image: "assets/imgs/identity.jpg",
+                    time: "8:00",
+                    date: "20 February 2025",
+                    location: "KNECC",
+                    details: "แสดงแสงสีเสียงพระราชประวัติฯ และเต้นประกอบเพลง",
+                    ticketPrice: "Free",
+                    coordinates: [100.1920, 16.7450],
+                    id: "event2"
+                }
+            ];
+
+            const eventList = document.getElementById('event-list');
+            const eventDetails = document.getElementById('event-details');
+
+            function showEventDetails(event) {
+                eventList.style.display = 'none';
+                eventDetails.style.display = 'block';
+                eventDetails.innerHTML = `
                 <h3>${event.name}</h3>
+                <img src="${event.image}" alt="${event.name}">
                 <p><strong>Time:</strong> ${event.time}</p>
                 <p><strong>Date:</strong> ${event.date}</p>
                 <p><strong>Location:</strong> ${event.location}</p>
+                <p>${event.details}</p>
+                <button onclick="goBack()">Back to List</button>
+                <button onclick="window.location.href='ll.html?event=${event.id}'">View on Map</button>
             `;
-            card.addEventListener('click', () => showEventDetails(event));
-            eventList.appendChild(card);
-        });
-    }
+            }
 
-    loadEventList();
-</script>
+            function goBack() {
+                eventDetails.style.display = 'none';
+                eventList.style.display = 'block';
+            }
 
-</body>
+            function loadEventList() {
+                events.forEach(event => {
+                    const card = document.createElement('div');
+                    card.className = 'event-card';
+                    card.innerHTML = `
+                    <img src="${event.image}" alt="${event.name}">
+                    <div>
+                        <h3>${event.name}</h3>
+                        <p><strong>Time:</strong> ${event.time}</p>
+                        <p><strong>Date:</strong> ${event.date}</p>
+                        <p><strong>Location:</strong> ${event.location}</p>
+                    </div>
+                `;
+                    card.addEventListener('click', () => showEventDetails(event));
+                    eventList.appendChild(card);
+                });
+            }
+
+            loadEventList();
+        </script>
+        <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+        <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+        <!-- bootstrap 3 affix -->
+        <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+        <!-- Meyawo js -->
+        <script src="assets/js/meyawo.js"></script>
+        <!-- event date -->
+        <script src="assets/js/date.js"></script>
+        <!-- select faclty -->
+        <script src="assets/js/faculty.js"></script>
+        <!-- star -->
+        <script src="assets/js/star.js"></script>
+
+    </body>
+
 </html>

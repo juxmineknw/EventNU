@@ -42,27 +42,15 @@
             margin-left: auto;
             margin-right: auto;
         }
-        .event-image {
+
+        .event-container img {
             max-width: 200%;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .event-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-        .event-name {
-            margin-top: 20px;
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #333;
-        }
-        p {
-            font-size: 1.2em;
-            color: #777;
-        }
+
         .back-button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -82,43 +70,15 @@
     </style>
 </head>
 <body>
-
-<h1>Event Details</h1>
+    
 <div class="event-container" id="event-container">
-    <!-- Content will be dynamically generated -->
+    <h1>Open House Faculty of Science</h1>
+    <img src="assets/imgs/open.png" alt="Event Image">
 </div>
-<a href="javascript:history.back()" class="back-button">Back</a>    
 
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const eventId = urlParams.get('event'); // Get event ID from URL
+<!-- Back Button -->
+<a href="javascript:history.back()" class="back-button">Back</a>
 
-    const events = [
-        {
-            id: "event1",
-            name: "ทำบุญตักบาตร",
-            image: "assets/imgs/open.png" // Example image URL
-        },
-        {
-            id: "event2",
-            name: "Open House Faculty of Science",
-            image: "assets/imgs/2_0.png" // Example image URL
-        }
-    ];
-
-    const selectedEvent = events.find(event => event.id === eventId);
-
-    const eventContainer = document.getElementById('event-container');
-
-    if (selectedEvent) {
-        eventContainer.innerHTML = `
-            <img class="event-image" src="${selectedEvent.image}" alt="${selectedEvent.name}">
-            <div class="event-name">${selectedEvent.name}</div>
-        `;
-    } else {
-        eventContainer.innerHTML = '<p>Event not found. Please select a valid event.</p>';
-    }
-</script>
 <!-- core  -->
 <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
 <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
