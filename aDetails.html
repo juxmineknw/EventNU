@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- meyao -->
+    <link rel="stylesheet" href="assets/css/meyawo.css">
+    <!-- font-awesome icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Material icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>EventNU</title> 
+</head>
+
+<body>
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20" style="background-color: #fff;">
+        <div class="container">
+            <a class="logo" style="color: #EB8826;" href="home.html">EventNU</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" style="color: gray;" href="home.html">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="color: gray;" href="favorite.html">Favorite</a>
+                </li>
+                <li class="item">
+                    <a class="link" style="color: gray;" href="layout.html">Layout</a>
+                </li>
+                <li class="item ml-md-3">
+                    <a href="setting.html" class="btn btn-primary">Setting</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
+
+    <div class="adetails">
+      <!-- Top Section -->
+      <div class="adetails-top-container">
+          <div class="adetails-top-box">
+              <div class="adetails-top">
+                  <div class="adetails-top-left">
+                      <img src="assets/imgs/openhouse.jpg" alt="Event Left Image">
+                  </div>
+                  <div class="adetails-top-right">
+                      <h3>Event in NU Presents "Open House 2025"</h3>
+                      <div class="adetails-top-icons">
+                          <i class="fas fa-share-alt" onclick="shareEvent()"></i>
+                          <i class="fas fa-link" onclick="copyLink()"></i>
+                          <i class="far fa-star" id="star-icon" onclick="toggleFavorite()"></i>
+                      </div>
+                      <div class="adetails-top-info">
+                          <div class="adetails-info-item">
+                              <div class="adetails-icon-circle">
+                                  <i class="fas fa-ticket-alt"></i>
+                              </div>
+                              <span><strong>Public Sale Date:</strong> 23 January 2025 | 09:00</span>
+                          </div>
+                          <div class="adetails-info-item">
+                              <div class="adetails-icon-circle">
+                                  <i class="fas fa-calendar-alt"></i>
+                              </div>
+                              <span><strong>Event Date:</strong> 26 January 2025</span>
+                          </div>
+                          <div class="adetails-info-item">
+                              <div class="adetails-icon-circle">
+                                  <i class="fas fa-clock"></i>
+                              </div>
+                              <span><strong>Event Time:</strong> เริ่มงาน 09:00 น. เป็นต้นไป</span>
+                          </div>
+                          <div class="adetails-info-item">
+                              <div class="adetails-icon-circle">
+                                  <i class="fas fa-ticket"></i>
+                              </div>
+                              <span><strong>Prices:</strong> Free</span>
+                          </div>
+                          <div class="adetails-info-item">
+                              <div class="adetails-icon-circle">
+                                  <i class="fas fa-location-dot"></i>
+                              </div>
+                              <span><strong style="color: gray;">Naresuan University (Science Faculty)</strong></span>
+                          </div>
+                          <div class="adetails-mapping">
+                              <p style="color: gray;">Province: Phitsanulok District: Muang</p>
+                              <a href="https://www.google.com/maps/place/..." target="_blank" class="adetails-map-link">
+                                  Open Map
+                              </a>
+                          </div>
+                          <div class="adetails-top-right-btn-comingsoon">
+                              <h3>Coming Soon</h3>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Bottom Section -->
+      <div class="adetails-bottom-container">
+          <div class="adetails-bottom-left">
+              <div class="adetails-bottom-left-about">
+                  <div class="adetails-name-event">
+                    <p>About the Event</p>
+                  <div class="adetails-moodeng">
+                      <p>Categories: <span class="highlight">Education</span></p>
+                  </div>
+                      <h3>Event in Naresuan University Presents "Open House"</h3>
+                      <p>Open House Faculty of Science</p>
+                      <h6>รับชมได้ <span class="highlight">วันที่ 26 มกราคม 2568</span> นี้</h6>
+                      <div class="adetails-textevent">
+                          เตรียมตัวพบกับกิจกรรมที่น่าสนใจจาก 5 ภาควิชา<br>
+                          - กิจกรรมรอบที่ 1: 09.00-10.00 น.<br>
+                          - กิจกรรมรอบที่ 2: 10.30-11.30 น.<br>
+                          ผู้เข้าร่วมจะได้รับเกียรติบัตรจากงาน Open House สามารถนำไปใช้ในการสมัคร TCAS 69 รอบ 1 Portfolio ของคณะวิทยาศาสตร์ มหาวิทยาลัยนเรศวร
+                          (รับตรงงานสัปดาห์วิทยาศาสตร์)
+                      </div>
+                      <div class="adetails-selecteventdata">
+                        <p>Select Event Date:</p>
+                      </div>
+                      <div class="adetails-bottom-mapping">
+                          <i class="fas fa-location-dot"></i>
+                          <p>Province: Phitsanulok District: Muang</p>
+                          <a href="https://www.google.com/maps/place/..." target="_blank" class="adetails-bottommap-link">
+                              <!-- Google Maps Link -->
+                          </a>
+                      </div>
+                      <div class="adetails-bottom-box">
+                          <div class="adetails-bottom-box-left">
+                              <span class="datehighlight">26</span> <br> ม.ค. 2568 <br>อาทิตย์ 09:00
+                          </div>
+                          <div class="adetails-bottom-box-right">
+                              Open House <br>Faculty of Science
+                          </div>
+                      </div>
+                      <button id="registerevent" class="adetails-bottom-register-btn" onclick="window.location.href='register.html';">Register</button>
+                      <button id="registerevent" class="adetails-bottom-register-btn" style="margin-top: 20px;" onclick="window.location.href='openlayout.html';">Layout</button>
+                      <div class="adetails-back-link"><a href="javascript:history.back()" >< Back</a></div> 
+                    </div>
+                    
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Meyawo js -->
+    <script src="assets/js/meyawo.js"></script>
+    <!-- event date -->
+    <script src="assets/js/date.js"></script>
+    <!-- select faclty -->
+    <script src="assets/js/faculty.js"></script>
+    <!-- star -->
+    <script src="assets/js/star.js"></script>
+</body>
+
+</html>
